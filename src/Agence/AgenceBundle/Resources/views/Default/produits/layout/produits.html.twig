@@ -10,19 +10,21 @@
 
         <div class="span9">
             <ul class="thumbnails">
-            {% for i in 0..5 %}
-                <li class="span3">
-                    <div class="thumbnail">
-                        <img src="{{ asset('images/balerine.jpg') }}" alt="Balerine" width="300" height="300">
-                        <div class="caption">
-                            <h4>Nom de la Danseuse</h4>
 
-                            <a class="bouton" href="{{ path ('presentation') }}">Plus d'infos</a>
-                            <a class="bouton" href="{{ path ('panier') }}">Ajouter au panier</a>
+                {% for danseuse in danseuses %}
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <img src="{{ danseuse.image }}" alt="Balerine" width="300" height="300">
+                            <div class="caption">
+                                <h4>{{ danseuse.nom }}</h4>
+
+                                <a class="bouton" href="{{ path ('presentation') }}">Plus d'infos</a>
+                                <a class="bouton" href="{{ path ('produits') }}">Ajouter au panier</a>
+
+                            </div>
                         </div>
-                    </div>
-                </li>
                 {% endfor %}
+                
             </ul>
 
             <div class="pagination">

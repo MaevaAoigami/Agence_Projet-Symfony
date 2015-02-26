@@ -4,14 +4,25 @@ namespace Agence\AgenceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Agence\AgenceBundle\Entity\Danseuses;
+use Agence\AgenceBundle\Form\testType;
 
 
 class TestController extends Controller
 {
-    public function AjouterAction()
+
+    public function testFormulaireAction() {
+
+        $form = $this->createForm(new testType());
+
+        return $this->render('AgenceBundle:Default:test.html.twig', array('form' => $form->createView()));
+
+        die('ici');
+    }
+
+    /* public function AjouterAction()
     {
     	$em = $this->getDoctrine()->getManager();
-/*
+
     	$danseuse = new Danseuses();
     	$danseuse->setCategorie('Danseuse Etoile');
     	$danseuse->setDescription('c\'est une étoile depuis tres longtemps');
@@ -36,11 +47,11 @@ class TestController extends Controller
     	$em->persist($danseuse2);
 
     	$em->flush();
-*/    	
+   	
     	$danseuses = $em->getRepository('AgenceBundle:Danseuses')->findAll();
     	
         return $this->render('AgenceBundle:Default:test.html.twig', array('danseuses' => $danseuses));
-    }
+    } */
 
     
 }

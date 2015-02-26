@@ -8,7 +8,11 @@ class ProduitsController extends Controller
 {
     public function produitsAction()
     {
-        return $this->render('AgenceBundle:Default:produits/layout/produits.html.twig');
+    	$em = $this->getDoctrine()->getManager();
+
+    	$danseuses = $em->getRepository('AgenceBundle:Danseuses')->findAll();
+
+        return $this->render('AgenceBundle:Default:produits/layout/produits.html.twig', array('danseuses' => $danseuses));
     }
 
     public function presentationAction()
