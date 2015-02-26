@@ -1,0 +1,21 @@
+<!-- pour renvoyer la page 
+========================= -->
+{{ asset('la page') }}
+<!-- pour donner le chemain de la page 
+==================================== --> 
+{{ path ('lapage') }}
+<!-- pour la création d'un bundle
+================================= --> 
+php app/console generat:bundle
+<!-- pour la inclure une page dans le twig --> 
+{% include ::lechemain/lapage.html.twig %}
+
+<!-- pour savoir les routes et chemin pour les path -->
+dans le terminal
+
+php app/console router:debug
+
+pour attribuer un role admin aller dans le terminal et tapper cette ligne de commande
+php app/console fos:user:promote 
+ensuite le nom de l'utilisateur: Playerone
+ensuite: ROLE_USER
