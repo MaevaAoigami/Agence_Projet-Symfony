@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * commande
  *
- * @ORM\Table()
+ * @ORM\Table("commande")
  * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\commandeRepository")
  */
-class commande
+class Commande
 {
     /**
      * @var integer
@@ -20,6 +20,12 @@ class commande
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Utilisateurs", inversedBy="commande")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $utilisateur;
 
     /**
      * @var boolean
@@ -34,13 +40,6 @@ class commande
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="reference", type="integer")
-     */
-    private $reference;
 
     /**
      * @var array
@@ -150,5 +149,28 @@ class commande
     public function getProduits()
     {
         return $this->produits;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur
+     * @return Commande
+     */
+    public function setUtilisateur(\Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
     }
 }

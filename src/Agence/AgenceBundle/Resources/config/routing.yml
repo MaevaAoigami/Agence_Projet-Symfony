@@ -1,18 +1,10 @@
-supprimer:
-    path:     /supprimer/{id}
-    defaults: { _controller: AgenceBundle:Produits:supprimer }
-
-ajouter:
-    path:     /ajouter/{id}
-    defaults: { _controller: AgenceBundle:Produits:ajouter }
-
 produits:
     path:     /
     defaults: { _controller: AgenceBundle:Produits:produits }
 
 presentation:
-    path:     /produit
-    defaults: { _controller: AgenceBundle:Produits:presentation }
+    path:     /presentation/{id}
+    defaults: { _controller: AgenceBundle:Presentation:presentation }
 
 panier:
     path:     /panier

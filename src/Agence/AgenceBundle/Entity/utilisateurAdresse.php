@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * utilisateurAdresse
  *
- * @ORM\Table()
+ * @ORM\Table("utilisateurAdresse")
  * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\utilisateurAdresseRepository")
  */
-class utilisateurAdresse
+class UtilisateurAdresse
 {
     /**
      * @var integer
@@ -20,6 +20,12 @@ class utilisateurAdresse
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Utilisateurs", inversedBy="adresses")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $utilisateur;
 
     /**
      * @var string
@@ -240,5 +246,28 @@ class utilisateurAdresse
     public function getPays()
     {
         return $this->pays;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur
+     * @return UtilisateurAdresse
+     */
+    public function setUtilisateur(\Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
     }
 }

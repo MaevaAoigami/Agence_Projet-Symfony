@@ -14,11 +14,11 @@
                 {% for danseuse in danseuses %}
                     <li class="span3">
                         <div class="thumbnail">
-                            <img src="{{ danseuse.image }}" alt="Balerine" width="300" height="300">
+                            <img src="{{ danseuse.photo }}" alt="Balerine" width="300" height="300">
                             <div class="caption">
                                 <h4>{{ danseuse.nom }}</h4>
 
-                                <a class="bouton" href="{{ path ('presentation') }}">Plus d'infos</a>
+                                <a class="bouton" href="{{ path('presentation', {id: danseuse.id}) }}">Plus d'infos</a>
                                 <a class="bouton" href="{{ path ('produits') }}">Ajouter au panier</a>
 
                             </div>

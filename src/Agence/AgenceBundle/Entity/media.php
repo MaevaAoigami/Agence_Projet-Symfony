@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * media
  *
- * @ORM\Table()
+ * @ORM\Table("media")
  * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\mediaRepository")
  */
-class media
+class Media
 {
     /**
      * @var integer
@@ -20,6 +20,12 @@ class media
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Danseuses", inversedBy="media")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $danseuse;
 
     /**
      * @var string
@@ -35,6 +41,15 @@ class media
      */
     private $alt;
 
+    /**
+     * Transform to string
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
 
     /**
      * Get id
@@ -90,5 +105,28 @@ class media
     public function getAlt()
     {
         return $this->alt;
+    }
+
+    /**
+     * Set danseuse
+     *
+     * @param \Agence\AgenceBundle\Entity\Danseuses $danseuse
+     * @return Media
+     */
+    public function setDanseuse(\Agence\AgenceBundle\Entity\Danseuses $danseuse = null)
+    {
+        $this->danseuse = $danseuse;
+
+        return $this;
+    }
+
+    /**
+     * Get danseuse
+     *
+     * @return \Agence\AgenceBundle\Entity\Danseuses 
+     */
+    public function getDanseuse()
+    {
+        return $this->danseuse;
     }
 }

@@ -11,7 +11,8 @@ class testType extends AbstractType
     {
     	// Ici nous allons faire notre formulaire en PHP
     	// Le HTML c'est finit
-    	$builder-> add('email');
+    	$builder-> add('email')
+                -> add('prenom');
     }
 
     public function getName()

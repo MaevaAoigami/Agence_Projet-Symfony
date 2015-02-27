@@ -14,9 +14,4 @@ class ProduitsController extends Controller
 
         return $this->render('AgenceBundle:Default:produits/layout/produits.html.twig', array('danseuses' => $danseuses));
     }
-
-    public function presentationAction()
-    {
-        return $this->render('AgenceBundle:Default:produits/layout/presentation.html.twig');
-    }
 }
