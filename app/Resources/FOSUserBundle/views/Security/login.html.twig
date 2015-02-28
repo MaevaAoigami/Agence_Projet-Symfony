@@ -1,3 +1,5 @@
+
+
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
@@ -7,25 +9,31 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-
+<div class="enregistrement">
 <div class="row">
         <div class="span12">
             <h2>Connexion</h2>
             <div id="collapseOne" class="accordion-body collapse in">
                 <div class="accordion-inner">
-                    <div class="span4">
+                    <div class="span4 login">
                         <h4>Vous n'etes pas encore inscrit ?</h4>
                         <em>
                             nous vous invitons à vous inscrire<br />
                             afin de passer de proceder aux visionnage des profiles.
                         </em>
-                        <br /><br />
+                        <br /><br /><br><br>
                         <a href="{{ path('fos_user_registration_register') }}" class="bouton">S'inscrire</a>
-                        
                     </div>
+
+                    <!-- ici se trouve la connexion du site interber -->
+
+                    <!-- ici je compte mettre un slider --> 
+
                     
-                    <div class="span4 offset2">
+                    <div class="span4 offset2 login">
                         <h4>Connexion</h4>
+
+                        <!-- path ici requiere c'est pour le path et faire la redirection de la page --> 
                         <form action="{{ path("fos_user_security_check") }}" method="post">
 						    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
@@ -46,5 +54,5 @@
             </div>
         </div>
     </div>
-
+    </div>
 {% endblock fos_user_content %}

@@ -11,118 +11,28 @@
         <link rel="stylesheet" href="{{ asset ('css/font-awesome.css') }}" />
         <link rel="stylesheet" href="{{ asset ('css/style.css') }}" />
 
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/demo.css') }}" />
+        <script type="text/javascript" src="{{ asset ('js/modernizr.custom.86080.js') }}"></script>
+
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
     <!-- ici se trouve la navigation
     =============================== -->   
-        {% block nav %} 
-            {% include '::layout/nav.html.twig' %}
-        {% endblock %}
-    <!-- FIN DE LA NAVIGATION 
-    ========================= -->
-
-
-        <!-- Full Page Image Background Carousel Header
-        =============================================== -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('{{ asset('images/slider1.jpg') }}');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                Set the third background image using inline CSS below.
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-
-    </header>
-    <!-- END SLIDER 
-    ===============--> 
-        <div class="jumbotron">
-          <h1>Agence Opérationnel</h1>
-          <p>... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam fuga dolore, consectetur magnam vero asperiores. Quibusdam nostrum dignissimos itaque fuga, quod placeat possimus obcaecati, aspernatur aliquid voluptatem molestiae quisquam, aperiam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam similique incidunt vitae alias omnis quisquam nihil quasi in quos quia. Est voluptate temporibus aut accusamus, possimus quod dignissimos magni eum.</p>
-          <p><a class="bouton" href="{{ path ('page', { id : 1 }) }}" role="button">En savoir +</a></p>
-        </div>
-   <!-- ICI SE TROUVE LE BODY,LE MAIN DU SITE 
-   ======================================== -->
+    {% block nav %} 
+        {% include '::layout/nav.html.twig' %}
+    {% endblock %}
+    <!-- BODY
+    ========= -->
     {% block body %} 
     {% endblock %}
-   <!-- FIN BODY FIN MAIN 
-   ====================--> 
-    <hr />
 
-    <footer id="footer" class="vspace20">
-        <div class="container">
-            <div class="row">
-                <div class="span4 offset1">
-                <!--
-                    <h4>Informations</h4>
-                    <ul class="nav nav-stacked">
-                        <li><a href="{{ path('page', {'id' : 1 }) }}">CGV</a>
-                        <li><a href="{{ path('page', {'id' : 2 }) }}">Mentions légales</a>
-                    </ul>
-                -->
-                </div> 
 
-                <div class="span4">
-                    <h4>Notre Agence</h4>
-                    <p><i class="icon-map-marker"></i>&nbsp;Levallois 92300 - 12 rue Jacques Ibert</p>
-                </div>
 
-                <div class="span2">
-                    <h4>Nous contacter</h4>
-                    <p>Chris Eric & Maëva Ridard</p>
-                    <p><i class="icon-phone"></i>&nbsp;Tel: 06 59 41 18 35</p>
-                    
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="span4">
-                    <p>&copy; Copyright 2014 - Agence Opérationnel</p>
-                </div>
-            </div>
-        </div>
-    </footer>   
+   
     <script src="{{ asset ('js/jquery-1.10.0.min.js') }}"></script>
     <script src="{{ asset ('js/bootstrap.js') }}"></script>
     {% block javascripts %}{% endblock %}
 </body>
-
-</html>
-
-    
-    </body>
 </html>
