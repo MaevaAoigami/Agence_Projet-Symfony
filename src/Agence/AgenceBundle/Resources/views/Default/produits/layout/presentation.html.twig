@@ -1,5 +1,8 @@
 {% extends "::layout/layout.html.twig" %}
 
+{% block title %}{{ danseuse.nom }}{% endblock %}
+{% block description %}{{ danseuse.description }}{% endblock %}
+
 {% block body %}
 
 <div class="container">
@@ -18,7 +21,7 @@
 						<h4>{{ danseuse.nom }}</h4>
 						<h5>{{ danseuse.categorie }}</h5>
 						<p>{{ danseuse.description }}</p>
-						<h4>{{ danseuse.prix }} €</h4>
+						<h4>{{ danseuse.prix|tva(danseuse.tva.multiplicate) }} €</h4>
 						<form action="panier.php">
 					
 

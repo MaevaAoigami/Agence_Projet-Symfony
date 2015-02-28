@@ -1,4 +1,5 @@
 services:
-#    agence.example:
-#        class: Agence\AgenceBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    tva:
+        class: Agence\AgenceBundle\Twig\Extension\TvaExtension
+        tags:
+            - { name: twig.extension }
