@@ -2,6 +2,8 @@ produits:
     path:     /
     defaults: { _controller: AgenceBundle:Produits:produits }
 
+
+
 presentation:
     path:     /presentation/{id}
     defaults: { _controller: AgenceBundle:Presentation:presentation }
@@ -9,6 +11,14 @@ presentation:
 panier:
     path:     /panier
     defaults: { _controller: AgenceBundle:Panier:panier }
+
+ajouter:
+    path:     /ajouter/{id}
+    defaults: { _controller: AgenceBundle:Panier:ajouter }
+
+supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: AgenceBundle:Produits:supprimer }
 
 livraison:
     path:     /panier/livraison

@@ -76,6 +76,13 @@ class Danseuses
     private $photo;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="qte", type="integer")
+     */
+    private $qte;
+
+    /**
      * Transform to string
      * 
      * @return string
@@ -295,5 +302,28 @@ class Danseuses
     public function getPhoto()
     {
         return $this->photo;
+    }
+
+    /**
+     * Set qte
+     *
+     * @param integer $qte
+     * @return Danseuses
+     */
+    public function setQte($qte)
+    {
+        $this->qte = $qte;
+
+        return $this;
+    }
+
+    /**
+     * Get qte
+     *
+     * @return integer 
+     */
+    public function getQte()
+    {
+        return $this->qte;
     }
 }

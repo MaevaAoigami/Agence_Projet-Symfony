@@ -19,8 +19,8 @@
                                 <h4>{{ danseuse.nom }}</h4>
                                 <h5>{{ danseuse.prix|tva(danseuse.tva.multiplicate) }} €</h5>
 
-                                <a class="bouton" href="{{ path('presentation', {id: danseuse.id}) }}">Plus d'infos</a>
-                                <a class="bouton" href="{{ path ('produits') }}">Ajouter au panier</a>
+                                <a class="bouton" href="{{ path('presentation',{ id: danseuse.id}) }}">Plus d'infos</a>
+                                <a class="bouton" href="{{ path ('ajouter', { id : danseuse.id }) }}">Ajouter au panier</a>
 
                             </div>
                         </div>
