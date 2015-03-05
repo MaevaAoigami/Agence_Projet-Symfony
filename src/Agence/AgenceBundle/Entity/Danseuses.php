@@ -76,13 +76,6 @@ class Danseuses
     private $photo;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="qte", type="integer")
-     */
-    private $qte;
-
-    /**
      * Transform to string
      * 
      * @return string

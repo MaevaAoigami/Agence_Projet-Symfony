@@ -20,7 +20,9 @@
                                 <h5>{{ danseuse.prix|tva(danseuse.tva.multiplicate) }} €</h5>
 
                                 <a class="bouton" href="{{ path('presentation',{ id: danseuse.id}) }}">Plus d'infos</a>
-                                <a class="bouton" href="{{ path ('ajouter', { id : danseuse.id }) }}">Ajouter au panier</a>
+                                {% if panier[danseuse.id] is not defined %}
+                                    <a class="bouton" href="{{ path ('ajouter', { id : danseuse.id }) }}">Ajouter au panier</a>
+                                {% endif %}
 
                             </div>
                         </div>

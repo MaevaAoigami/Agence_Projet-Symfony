@@ -22,19 +22,24 @@
 						<h5>{{ danseuse.categorie }}</h5>
 						<p>{{ danseuse.description }}</p>
 						<h4>{{ danseuse.prix|tva(danseuse.tva.multiplicate) }} €</h4>
-						<form action="{{ path('ajouter', { id : danseuse.id }) }}" method="GET">
-					
+						
+						{% if panier[danseuse.id] is not defined %}
+                        <form action="{{ path('ajouter', { 'id' : danseuse.id }) }}" method="get">
+                            <select name="qte" class="span1">
+                                {% for i in 1..10 %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
 
-							<select name="qte" class="span1">
-								{% for i in 1..10 %}
-									<option value="{{ i }}">{{ i }}</option>
-								{% endfor %}
-							</select>
-
-							<div>
-							    <button class="bouton">Ajouter à ma demande</button>
-							</div>
-						</form>
+                            <div>
+                                <button class="btn btn-primary">Ajouter au panier</button>
+                            </div>
+                        </form>
+                        {% else %}
+                            <div>
+                                <a href="{{ path('panier') }}" class="btn btn-primary">Le produit est déjà dans votre panier</a>
+                            </div>
+                        {% endif %}
 						
 					</div>
 				</div>

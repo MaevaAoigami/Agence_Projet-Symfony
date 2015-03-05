@@ -5,10 +5,10 @@ namespace Agence\AgenceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * media
+ * Media
  *
  * @ORM\Table("media")
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\mediaRepository")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\MediaRepository")
  */
 class Media
 {

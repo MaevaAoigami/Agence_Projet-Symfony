@@ -5,10 +5,10 @@ namespace Agence\AgenceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * utilisateurAdresse
+ * UtilisateurAdresse
  *
  * @ORM\Table("utilisateurAdresse")
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\utilisateurAdresseRepository")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\UtilisateurAdresseRepository")
  */
 class UtilisateurAdresse
 {

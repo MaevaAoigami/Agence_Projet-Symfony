@@ -8,9 +8,18 @@ class PresentationController extends Controller
 {
     public function presentationAction($id)
     {
-        $repository = $this->container->get('doctrine')->getRepository('AgenceBundle:Danseuses');
-        $danseuse = $repository->findOneById($id);
-
-        return $this->render('AgenceBundle:Default:produits/layout/presentation.html.twig', array('danseuse' => $danseuse));
+        $session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+        $danseuse = $em->getRepository('AgenceBundle:Danseuses')->find($id);
+        
+        if (!$danseuse) throw $this->createNotFoundException('La page n\'existe pas.');
+        
+        if ($session->has('panier'))
+            $panier = $session->get('panier');
+        else
+            $panier = false;
+        
+        return $this->render('AgenceBundle:Default:produits/layout/presentation.html.twig', array('danseuse' => $danseuse,
+                                                                                                  'panier' => $panier));
     }
 }

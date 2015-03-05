@@ -27,7 +27,7 @@ class DanseusesData extends AbstractFixture implements OrderedFixtureInterface
         $danseuse2->setPrix('800');
         $danseuse2->setDisponible(1);
         $danseuse2->setCategorie('Veuve');
-        $danseuse2->setTva($this->getReference('tva2'));
+        $danseuse2->setTva($this->getReference('tva1'));
         $danseuse2->setPhoto('http://www.ac-grenoble.fr/ecole/sauve.nyons/IMG/jpg/Danse_classique.jpg');
         $manager->persist($danseuse2);
 
@@ -57,7 +57,7 @@ class DanseusesData extends AbstractFixture implements OrderedFixtureInterface
         $danseuse5->setPrix('1200');
         $danseuse5->setDisponible(1);
         $danseuse5->setCategorie('Débutante');
-        $danseuse5->setTva($this->getReference('tva2'));
+        $danseuse5->setTva($this->getReference('tva1'));
         $danseuse5->setPhoto('http://s3.e-monsite.com/2011/02/06/12/219437731.jpg');
         $manager->persist($danseuse5);
 
@@ -67,7 +67,7 @@ class DanseusesData extends AbstractFixture implements OrderedFixtureInterface
         $danseuse6->setPrix('1500');
         $danseuse6->setDisponible(1);
         $danseuse6->setCategorie('Veuve');
-        $danseuse6->setTva($this->getReference('tva2'));
+        $danseuse6->setTva($this->getReference('tva1'));
         $danseuse6->setPhoto('http://static.seety.pagesjaunes.fr/asset_site_89fb29e2-4806-47fe-88ba-880295ed8f37/ae2fd69f-10fd-4be3-8bcc-d4050c3c23f4');
         $manager->persist($danseuse6);
 
@@ -87,7 +87,7 @@ class DanseusesData extends AbstractFixture implements OrderedFixtureInterface
         $danseuse8->setPrix('1500');
         $danseuse8->setDisponible(1);
         $danseuse8->setCategorie('Étoile');
-        $danseuse8->setTva($this->getReference('tva2'));
+        $danseuse8->setTva($this->getReference('tva1'));
         $danseuse8->setPhoto('http://www.utile.fr/sites/default/files/imagecache/article_image/images/ballet_preparation_little_ballerina_girl_.jpg');
         $manager->persist($danseuse8);
 

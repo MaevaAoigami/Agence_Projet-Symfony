@@ -5,10 +5,10 @@ namespace Agence\AgenceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * commande
+ * Commande
  *
  * @ORM\Table("commande")
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\commandeRepository")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\CommandeRepository")
  */
 class Commande
 {
@@ -42,11 +42,18 @@ class Commande
     private $date;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="reference", type="integer")
+     */
+    private $reference;
+
+    /**
      * @var array
      *
-     * @ORM\Column(name="produits", type="array")
+     * @ORM\Column(name="commande", type="array")
      */
-    private $produits;
+    private $commande;
 
 
     /**
@@ -129,26 +136,26 @@ class Commande
     }
 
     /**
-     * Set produits
+     * Set commande
      *
-     * @param array $produits
+     * @param array $commande
      * @return commande
      */
-    public function setProduits($produits)
+    public function setCommande($commande)
     {
-        $this->produits = $produits;
+        $this->commande = $commande;
 
         return $this;
     }
 
     /**
-     * Get produits
+     * Get commande
      *
      * @return array 
      */
-    public function getProduits()
+    public function getCommande()
     {
-        return $this->produits;
+        return $this->commande;
     }
 
     /**
@@ -172,5 +179,28 @@ class Commande
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+
+    /**
+     * Set danseuses
+     *
+     * @param array $danseuses
+     * @return Commande
+     */
+    public function setDanseuses($danseuses)
+    {
+        $this->danseuses = $danseuses;
+
+        return $this;
+    }
+
+    /**
+     * Get danseuses
+     *
+     * @return array 
+     */
+    public function getDanseuses()
+    {
+        return $this->danseuses;
     }
 }

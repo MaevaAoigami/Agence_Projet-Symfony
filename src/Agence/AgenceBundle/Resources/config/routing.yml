@@ -18,7 +18,7 @@ ajouter:
 
 supprimer:
     path:     /supprimer/{id}
-    defaults: { _controller: AgenceBundle:Produits:supprimer }
+    defaults: { _controller: AgenceBundle:Panier:supprimer }
 
 livraison:
     path:     /panier/livraison
@@ -27,6 +27,10 @@ livraison:
 validation:
     path:     /panier/validation
     defaults: { _controller: AgenceBundle:Panier:validation }
+
+livraisonAdresseSuppression:
+    path:     /panier/livraison/adresse/suppression/{id}
+    defaults: { _controller: AgenceBundle:Panier:adresseSuppression }
 
 test:
     path:     /test
