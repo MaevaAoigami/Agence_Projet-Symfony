@@ -118,7 +118,7 @@ ul li{
     -ms-animation: titleAnimation 36s linear infinite 0s;
     animation: titleAnimation 36s linear infinite 0s;
 }
-.cb-slideshow li div h3 {
+.cb-slideshow li div{
     font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
     font-size: 160px;
     padding: 0 30px;
