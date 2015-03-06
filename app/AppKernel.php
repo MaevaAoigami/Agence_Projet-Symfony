@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Utilisateurs\UtilisateursBundle\UtilisateursBundle(),
             #Ici se trouve le bundle Fixtures
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

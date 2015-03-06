@@ -16,6 +16,7 @@ class ProduitsController extends Controller
         	$panier = $session->get('panier');
         else 
         	$panier = false;
+
         
         return $this->render('AgenceBundle:Default:produits/layout/produits.html.twig', array('danseuses' => $danseuses,
                                                                                               'panier' => $panier));

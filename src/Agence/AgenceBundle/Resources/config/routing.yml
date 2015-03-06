@@ -28,6 +28,10 @@ validation:
     path:     /panier/validation
     defaults: { _controller: AgenceBundle:Panier:validation }
 
+validationCommande:
+    pattern: /api/banque/{id}
+    defaults: { _controller: AgenceBundle:Commande:validationCommande }
+
 livraisonAdresseSuppression:
     path:     /panier/livraison/adresse/suppression/{id}
     defaults: { _controller: AgenceBundle:Panier:adresseSuppression }
