@@ -53,7 +53,7 @@ class Media
     
     public function getUploadRootDir()
     {
-        return __dir__.'/../../web/uploads';
+        return __dir__.'/../../../../web/uploads';
     }
     
     public function getAbsolutePath()
@@ -110,7 +110,7 @@ class Media
         if (file_exists($this->tempFile)) unlink($this->tempFile);
     }
 
-    /**
+    /**s
      * Get id
      *
      * @return integer 
@@ -154,5 +154,28 @@ class Media
         $this->path = $path;
 
         return $this;
+    }
+
+    /**
+     * Set updateAt
+     *
+     * @param \DateTime $updateAt
+     * @return Media
+     */
+    public function setUpdateAt($updateAt)
+    {
+        $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updateAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
     }
 }

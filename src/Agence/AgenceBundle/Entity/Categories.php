@@ -5,12 +5,12 @@ namespace Agence\AgenceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Tva
+ * Categories
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\TvaRepository")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\CategoriesRepository")
  */
-class Tva
+class Categories
 {
     /**
      * @var integer
@@ -22,31 +22,17 @@ class Tva
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Danseuses", mappedBy="tva")
+     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Danseuses", mappedBy="categories", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $danseuse;
 
     /**
-     * @var float
-     *
-     * @ORM\Column(name="multiplicate", type="float")
-     */
-    private $multiplicate;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="Name", type="string", length=50)
      */
     private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="valeur", type="string", length=255)
-     */
-    private $valeur;
 
 
     /**
@@ -60,33 +46,10 @@ class Tva
     }
 
     /**
-     * Set multiplicate
-     *
-     * @param float $multiplicate
-     * @return Tva
-     */
-    public function setMultiplicate($multiplicate)
-    {
-        $this->multiplicate = $multiplicate;
-
-        return $this;
-    }
-
-    /**
-     * Get multiplicate
-     *
-     * @return float 
-     */
-    public function getMultiplicate()
-    {
-        return $this->multiplicate;
-    }
-
-    /**
      * Set name
      *
      * @param string $name
-     * @return Tva
+     * @return Categories
      */
     public function setName($name)
     {
@@ -104,29 +67,6 @@ class Tva
     {
         return $this->name;
     }
-
-    /**
-     * Set valeur
-     *
-     * @param string $valeur
-     * @return Tva
-     */
-    public function setValeur($valeur)
-    {
-        $this->valeur = $valeur;
-
-        return $this;
-    }
-
-    /**
-     * Get valeur
-     *
-     * @return string 
-     */
-    public function getValeur()
-    {
-        return $this->valeur;
-    }
     /**
      * Constructor
      */
@@ -139,7 +79,7 @@ class Tva
      * Add danseuse
      *
      * @param \Agence\AgenceBundle\Entity\Danseuses $danseuse
-     * @return Tva
+     * @return Categories
      */
     public function addDanseuse(\Agence\AgenceBundle\Entity\Danseuses $danseuse)
     {
@@ -168,8 +108,8 @@ class Tva
         return $this->danseuse;
     }
 
-       public function __toString()
+    public function __toString()
     {
-        return $this->getNom();
+        return $this->getName();
     }
 }

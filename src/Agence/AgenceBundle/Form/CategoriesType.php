@@ -5,10 +5,8 @@ namespace Agence\AgenceBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Agence\AgenceBundle\Form\MediaType;
-use Agence\AgenceBundle\Form\CategoriesType;
 
-class DanseusesType extends AbstractType
+class CategoriesType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -17,13 +15,7 @@ class DanseusesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('description')
-            ->add('prix')
-            ->add('disponible')
-            ->add('categories')
-            ->add('image', new MediaType())
-            ->add('tva')
+            ->add('name')
         ;
     }
     
@@ -33,7 +25,7 @@ class DanseusesType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Agence\AgenceBundle\Entity\Danseuses'
+            'data_class' => 'Agence\AgenceBundle\Entity\Categories'
         ));
     }
 
@@ -42,6 +34,6 @@ class DanseusesType extends AbstractType
      */
     public function getName()
     {
-        return 'agence_agencebundle_danseuses';
+        return 'agence_agencebundle_categories';
     }
 }

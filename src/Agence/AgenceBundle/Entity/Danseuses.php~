@@ -34,12 +34,6 @@ class Danseuses
     private $tva;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Categories",  inversedBy="danseuse", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $categories;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=50)
@@ -223,28 +217,5 @@ class Danseuses
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * Set categories
-     *
-     * @param \Agence\AgenceBundle\Entity\Categories $categories
-     * @return Danseuses
-     */
-    public function setCategories(\Agence\AgenceBundle\Entity\Categories $categories)
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
-
-    /**
-     * Get categories
-     *
-     * @return \Agence\AgenceBundle\Entity\Categories 
-     */
-    public function getCategories()
-    {
-        return $this->categories;
     }
 }

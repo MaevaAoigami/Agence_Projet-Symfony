@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             #Ici se trouve le bundle Fixtures
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Pinano\Select2Bundle\PinanoSelect2Bundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

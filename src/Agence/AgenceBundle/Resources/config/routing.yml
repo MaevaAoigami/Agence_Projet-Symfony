@@ -1,3 +1,7 @@
+agence_admin_categories:
+    resource: "@AgenceBundle/Resources/config/routing/categories.yml"
+    prefix:   /admin/categories
+
 agence_pages_danseuses:
     resource: "@AgenceBundle/Resources/config/routing/danseuses.yml"
     prefix:   /pages/danseuses

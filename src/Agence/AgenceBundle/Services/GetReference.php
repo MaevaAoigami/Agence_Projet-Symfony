@@ -18,6 +18,6 @@ class GetReference
         if (!$reference)
             return 1;
         else 
-            return $reference->getReference() +1;
+            return $reference->GetReference() +1;
     }
 }
