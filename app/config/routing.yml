@@ -2,10 +2,6 @@ utilisateurs:
     resource: "@UtilisateursBundle/Resources/config/routing.yml"
     prefix:   /
 
-pages:
-    resource: "@PagesBundle/Resources/config/routing.yml"
-    prefix:   /
-
 agence:
     resource: "@AgenceBundle/Resources/config/routing.yml"
     prefix:   /

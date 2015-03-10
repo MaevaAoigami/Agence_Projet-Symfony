@@ -22,13 +22,13 @@ class Danseuses
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Media",  mappedBy="danseuse", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Agence\AgenceBundle\Entity\Media", cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $media;
+    private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Tva",  inversedBy="danseuse", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Tva",  inversedBy="danseuse", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $tva;
@@ -67,13 +67,6 @@ class Danseuses
      * @ORM\Column(name="categorie", type="string", length=80)
      */
     private $categorie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="photo", type="string", length=255)
-     */
-    private $photo;
 
     /**
      * Transform to string
@@ -211,47 +204,6 @@ class Danseuses
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->media = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add media
-     *
-     * @param \Agence\AgenceBundle\Entity\Media $media
-     * @return Danseuses
-     */
-    public function addMedia(\Agence\AgenceBundle\Entity\Media $media)
-    {
-        $this->media[] = $media;
-
-        return $this;
-    }
-
-    /**
-     * Remove media
-     *
-     * @param \Agence\AgenceBundle\Entity\Media $media
-     */
-    public function removeMedia(\Agence\AgenceBundle\Entity\Media $media)
-    {
-        $this->media->removeElement($media);
-    }
-
-    /**
-     * Get media
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMedia()
-    {
-        return $this->media;
-    }
-
-    /**
      * Set tva
      *
      * @param \Agence\AgenceBundle\Entity\Tva $tva
@@ -275,48 +227,25 @@ class Danseuses
     }
 
     /**
-     * Set photo
+     * Set image
      *
-     * @param string $photo
+     * @param \Agence\AgenceBundle\Entity\Media $image
      * @return Danseuses
      */
-    public function setPhoto($photo)
+    public function setImage(\Agence\AgenceBundle\Entity\Media $image)
     {
-        $this->photo = $photo;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Get photo
+     * Get image
      *
-     * @return string 
+     * @return \Agence\AgenceBundle\Entity\Media 
      */
-    public function getPhoto()
+    public function getImage()
     {
-        return $this->photo;
-    }
-
-    /**
-     * Set qte
-     *
-     * @param integer $qte
-     * @return Danseuses
-     */
-    public function setQte($qte)
-    {
-        $this->qte = $qte;
-
-        return $this;
-    }
-
-    /**
-     * Get qte
-     *
-     * @return integer 
-     */
-    public function getQte()
-    {
-        return $this->qte;
+        return $this->image;
     }
 }

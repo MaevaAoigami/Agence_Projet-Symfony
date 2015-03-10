@@ -1,8 +1,12 @@
+agence_pages_danseuses:
+    resource: "@AgenceBundle/Resources/config/routing/danseuses.yml"
+    prefix:   /pages/danseuses
+
+
+
 produits:
     path:     /
     defaults: { _controller: AgenceBundle:Produits:produits }
-
-
 
 presentation:
     path:     /presentation/{id}

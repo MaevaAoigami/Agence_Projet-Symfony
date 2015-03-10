@@ -22,7 +22,7 @@ class Tva
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Danseuses", mappedBy="tva", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Danseuses", mappedBy="tva")
      * @ORM\JoinColumn(nullable=true)
      */
     private $danseuse;
@@ -170,6 +170,6 @@ class Tva
 
        public function __toString()
     {
-        return $this->getName();
+        return $this->getNom();
     }
 }

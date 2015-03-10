@@ -24,13 +24,6 @@ class Media
     private $id;
     
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
-    */
-    private $updateAt;
-
-    /**
      * @ORM\PostLoad()
      */
     public function postLoad()
@@ -53,7 +46,7 @@ class Media
     
     public function getUploadRootDir()
     {
-        return __dir__.'/../../web/uploads';
+        return __dir__.'/../../../../web/uploads';
     }
     
     public function getAbsolutePath()

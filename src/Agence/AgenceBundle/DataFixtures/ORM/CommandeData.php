@@ -16,7 +16,7 @@ class CommandeData extends AbstractFixture implements OrderedFixtureInterface
         $commande1->setValider('1');
         $commande1->setDate(new \DateTime());
         $commande1->setReference('1');
-        $commande1->setProduits(array('0' => array('129' => '1'),
+        $commande1->setCommande(array('0' => array('129' => '1'),
                                       '1' => array('131' => '1')
                                 ));
         $manager->persist($commande1);
@@ -26,7 +26,7 @@ class CommandeData extends AbstractFixture implements OrderedFixtureInterface
         $commande2->setValider('1');
         $commande2->setDate(new \DateTime());
         $commande2->setReference('2');
-        $commande2->setProduits(array('0' => array('126' => '1'),
+        $commande2->setCommande(array('0' => array('126' => '1'),
                                       '1' => array('128' => '1')
                                 ));
         $manager->persist($commande2);
