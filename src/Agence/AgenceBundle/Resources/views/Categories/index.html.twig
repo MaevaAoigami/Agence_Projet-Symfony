@@ -12,6 +12,13 @@
             </tr>
         </thead>
         <tbody>
+
+        {% if entities|length == 0 %}
+            <tr>
+                <td colspan="3">Aucune catégorie dans votre liste.</td>
+            </tr>
+        {% endif %}
+
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('admin_categories_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>

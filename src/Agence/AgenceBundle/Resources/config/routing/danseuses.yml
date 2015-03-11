@@ -28,3 +28,12 @@ pages_danseuses_delete:
     path:     /{id}/delete
     defaults: { _controller: "AgenceBundle:Danseuses:delete" }
     methods:  [POST, DELETE]
+
+pages_danseuses_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AgenceBundle:Danseuses:delete" }
+    methods:  [POST, DELETE]
+
+pages_danseuses_validate:
+    path:     /{id}/validate
+    defaults: { _controller: "AgenceBundle:Danseuses:validate" }

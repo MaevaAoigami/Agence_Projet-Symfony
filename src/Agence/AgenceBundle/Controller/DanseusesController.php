@@ -15,6 +15,22 @@ use Agence\AgenceBundle\Form\DanseusesType;
 class DanseusesController extends Controller
 {
 
+    public function validateAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('AgenceBundle:Danseuses')->find($id);
+        if (!$entities) {
+            throw $this->createNotFoundException('Unable to find Danseuses entity.');
+        }
+        if($entities->getValider() == 0) {
+            $entities->setValider(1);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('pages_danseuses'));
+    }
+
     /**
      * Lists all Danseuses entities.
      *
@@ -29,6 +45,7 @@ class DanseusesController extends Controller
             'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new Danseuses entity.
      *
@@ -41,6 +58,7 @@ class DanseusesController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $entity->setValider(0);
             $em->persist($entity);
             $em->flush();
 
@@ -109,8 +127,8 @@ class DanseusesController extends Controller
         ));
     }
 
-    /**
-     * Displays a form to edit an existing Danseuses entity.
+        /**
+     * Displays a form to edit an existing Categories entity.
      *
      */
     public function editAction($id)
@@ -181,6 +199,7 @@ class DanseusesController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a Danseuses entity.
      *

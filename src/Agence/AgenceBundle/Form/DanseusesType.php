@@ -6,7 +6,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Agence\AgenceBundle\Form\MediaType;
-use Agence\AgenceBundle\Form\CategoriesType;
 
 class DanseusesType extends AbstractType
 {
@@ -20,7 +19,7 @@ class DanseusesType extends AbstractType
             ->add('nom')
             ->add('description')
             ->add('prix')
-            ->add('disponible')
+            ->add('disponible',null,array('required' => false))
             ->add('categories')
             ->add('image', new MediaType())
             ->add('tva')

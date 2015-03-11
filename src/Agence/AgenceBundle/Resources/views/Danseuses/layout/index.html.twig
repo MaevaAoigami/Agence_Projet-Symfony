@@ -12,6 +12,7 @@
                 <th>Prix</th>
                 <th>Disponible</th>
                 <th>Categorie</th>
+                <th>Valider ?</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,7 +20,7 @@
 
         {% if entities|length == 0 %}
             <tr>
-                <td colspan="7">Aucune danseuse dans votre panier.</td>
+                <td colspan="8">Aucune danseuse dans votre liste.</td>
             </tr>
         {% endif %}
 
@@ -32,12 +33,22 @@
                 <td>{{ entity.disponible }}</td>
                 <td>{{ entity.categories }}</td>
                 <td>
+                    {% if entity.valider == 0 %}
+                        Non !
+                    {% else %}
+                        Oui !
+                    {% endif %} 
+                </td>
+                <td>
                 <ul>
                     <li>
                         <a href="{{ path('pages_danseuses_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
                         <a href="{{ path('pages_danseuses_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('pages_danseuses_validate', { 'id': entity.id }) }}">validate</a>
                     </li>
                 </ul>
                 </td>

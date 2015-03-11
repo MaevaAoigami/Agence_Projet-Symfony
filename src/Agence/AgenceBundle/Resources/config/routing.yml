@@ -1,3 +1,7 @@
+agence_admin_evenements:
+    resource: "@AgenceBundle/Resources/config/routing/evenements.yml"
+    prefix:   /admin/evenements
+
 agence_admin_categories:
     resource: "@AgenceBundle/Resources/config/routing/categories.yml"
     prefix:   /admin/categories

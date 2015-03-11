@@ -68,13 +68,20 @@ class Danseuses
     private $disponible;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="valider", type="boolean")
+     */
+    private $valider;
+
+    /**
      * Transform to string
      * 
      * @return string
      */
-    public function __toString()
+       public function __toString()
     {
-        return (string) $this->getId();
+        return $this->getNom();
     }
     
     /**
@@ -246,5 +253,28 @@ class Danseuses
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set valider
+     *
+     * @param boolean $valider
+     * @return Danseuses
+     */
+    public function setValider($valider)
+    {
+        $this->valider = $valider;
+
+        return $this;
+    }
+
+    /**
+     * Get valider
+     *
+     * @return boolean 
+     */
+    public function getValider()
+    {
+        return $this->valider;
     }
 }
