@@ -20,14 +20,14 @@ class EvenementsController extends Controller
         $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
         
-        $findEvent = $em->getRepository('AgenceBundle:Evenements');
+        $findEvent = $em->getRepository('AgenceBundle:Evenements')->findAll();
 
-        /*$evenements  = $this->get('knp_paginator');
+        $evenements  = $this->get('knp_paginator');
         $evenements = $evenements->paginate(
             $findEvent,
-            $this->get('request')->query->get('page', 1)/*page number*/ //,
-            // 2 /*limit per page*/
-        // );
+            $this->get('request')->query->get('page', 1),
+             2 /*limit per page*/
+         );
         
         return $this->render('AgenceBundle:Default:evenements/evenements.html.twig', array('evenements' => $findEvent));
     }
