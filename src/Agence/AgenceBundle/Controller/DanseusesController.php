@@ -15,22 +15,6 @@ use Agence\AgenceBundle\Form\DanseusesType;
 class DanseusesController extends Controller
 {
 
-    public function validateAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('AgenceBundle:Danseuses')->find($id);
-        if (!$entities) {
-            throw $this->createNotFoundException('Unable to find Danseuses entity.');
-        }
-        if($entities->getValider() == 0) {
-            $entities->setValider(1);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('pages_danseuses'));
-    }
-
     /**
      * Lists all Danseuses entities.
      *
@@ -41,11 +25,10 @@ class DanseusesController extends Controller
 
         $entities = $em->getRepository('AgenceBundle:Danseuses')->findAll();
 
-        return $this->render('AgenceBundle:Danseuses:layout/index.html.twig', array(
+        return $this->render('AgenceBundle:Danseuses:index.html.twig', array(
             'entities' => $entities,
         ));
     }
-
     /**
      * Creates a new Danseuses entity.
      *
@@ -65,7 +48,7 @@ class DanseusesController extends Controller
             return $this->redirect($this->generateUrl('pages_danseuses_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('AgenceBundle:Danseuses:layout/new.html.twig', array(
+        return $this->render('AgenceBundle:Danseuses:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -99,7 +82,7 @@ class DanseusesController extends Controller
         $entity = new Danseuses();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('AgenceBundle:Danseuses:layout/new.html.twig', array(
+        return $this->render('AgenceBundle:Danseuses:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -121,14 +104,14 @@ class DanseusesController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('AgenceBundle:Danseuses:layout/show.html.twig', array(
+        return $this->render('AgenceBundle:Danseuses:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
-        /**
-     * Displays a form to edit an existing Categories entity.
+    /**
+     * Displays a form to edit an existing Danseuses entity.
      *
      */
     public function editAction($id)
@@ -144,7 +127,7 @@ class DanseusesController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('AgenceBundle:Danseuses:layout/edit.html.twig', array(
+        return $this->render('AgenceBundle:Danseuses:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -193,13 +176,12 @@ class DanseusesController extends Controller
             return $this->redirect($this->generateUrl('pages_danseuses_edit', array('id' => $id)));
         }
 
-        return $this->render('AgenceBundle:Danseuses:layout/edit.html.twig', array(
+        return $this->render('AgenceBundle:Danseuses:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
     /**
      * Deletes a Danseuses entity.
      *
@@ -239,5 +221,22 @@ class DanseusesController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+    public function validateAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('AgenceBundle:Danseuses')->find($id);
+        if(!$entities) {
+            throw $this->createNotFoundException('Unable to find Danseuses entity.');
+        }
+
+        if($entities->getValider() == 0) {
+            $entities->setValider(1);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('pages_danseuses'));
     }
 }

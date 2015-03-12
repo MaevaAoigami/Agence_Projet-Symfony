@@ -14,7 +14,7 @@
                 {% for danseuse in danseuses %}
                     <li class="span3">
                         <div class="thumbnail">
-                            <img src="{{ danseuse.image.AssetPath }}" alt="{{ danseuse.image.name }}" width="300" height="300">
+                            <img src="{{ asset(danseuse.image.AssetPath) }}" alt="{{ danseuse.image.name }}" width="300" height="300">
                             <div class="caption">
                                 <h4>{{ danseuse.nom }}</h4>
                                 <h5>{{ danseuse.prix|tva(danseuse.tva.multiplicate) }} €</h5>

@@ -19,10 +19,10 @@ class DanseusesType extends AbstractType
             ->add('nom')
             ->add('description')
             ->add('prix')
-            ->add('disponible',null,array('required' => false))
-            ->add('categories')
+            ->add('disponible', null, array('required' => false))
             ->add('image', new MediaType())
-            ->add('tva', 'entity' , array('read_only' => true, 'class' => 'Agence\AgenceBundle\Entity\Tva'))
+            ->add('tva')
+            ->add('categories')
         ;
     }
     
