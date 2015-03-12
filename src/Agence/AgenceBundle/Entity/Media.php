@@ -3,14 +3,12 @@
 namespace Agence\AgenceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\validator\Constraints as Assert;
 
 /**
  * Media
  *
  * @ORM\Table("media")
  * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\MediaRepository")
- * @ORM\HasLifecycleCallbacks
  */
 class Media
 {
@@ -24,93 +22,36 @@ class Media
     private $id;
     
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
-    */
-    private $updateAt;
+     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Danseuses", inversedBy="media")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $danseuse;
 
     /**
-     * @ORM\PostLoad()
-     */
-    public function postLoad()
-    {
-        $this->updateAt = new \DateTime();
-    }
-    
-    /**
-     * @ORM\Column(type="string",length=255) 
-     * @Assert\NotBlank
-     */
-    private $name;
-    
-    /**
-     * @ORM\Column(type="string",length=255, nullable=true) 
+     * @var string
+     *
+     * @ORM\Column(name="path", type="string", length=255)
      */
     private $path;
-    
-    public $file;
-    
-    public function getUploadRootDir()
-    {
-        return __dir__.'/../../../../web/uploads';
-    }
-    
-    public function getAbsolutePath()
-    {
-        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
-    }
-    
-    public function getAssetPath()
-    {
-        return 'uploads/'.$this->path;
-    }
-    
+
     /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate() 
+     * @var string
+     *
+     * @ORM\Column(name="alt", type="string", length=255)
      */
-    public function preUpload()
-    {
-        $this->tempFile = $this->getAbsolutePath();
-        $this->oldFile = $this->getPath();
-        $this->updateAt = new \DateTime();
-        
-        if (null !== $this->file) 
-            $this->path = sha1(uniqid(mt_rand(),true)).'.'.$this->file->guessExtension();
-    }
-    
+    private $alt;
+
     /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate() 
+     * Transform to string
+     * 
+     * @return string
      */
-    public function upload()
+    public function __toString()
     {
-        if (null !== $this->file) {
-            $this->file->move($this->getUploadRootDir(),$this->path);
-            unset($this->file);
-            
-            if ($this->oldFile != null) unlink($this->tempFile);
-        }
-    }
-    
-    /**
-     * @ORM\PreRemove() 
-     */
-    public function preRemoveUpload()
-    {
-        $this->tempFile = $this->getAbsolutePath();
-    }
-    
-    /**
-     * @ORM\PostRemove() 
-     */
-    public function removeUpload()
-    {
-        if (file_exists($this->tempFile)) unlink($this->tempFile);
+        return (string) $this->getId();
     }
 
-    /**s
+    /**
      * Get id
      *
      * @return integer 
@@ -119,35 +60,12 @@ class Media
     {
         return $this->id;
     }
-    
-    public function getPath()
-    {
-        return $this->path;
-    }
-    
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Media
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
 
     /**
      * Set path
      *
      * @param string $path
-     * @return Media
+     * @return media
      */
     public function setPath($path)
     {
@@ -157,25 +75,58 @@ class Media
     }
 
     /**
-     * Set updateAt
+     * Get path
      *
-     * @param \DateTime $updateAt
-     * @return Media
+     * @return string 
      */
-    public function setUpdateAt($updateAt)
+    public function getPath()
     {
-        $this->updateAt = $updateAt;
+        return $this->path;
+    }
+
+    /**
+     * Set alt
+     *
+     * @param string $alt
+     * @return media
+     */
+    public function setAlt($alt)
+    {
+        $this->alt = $alt;
 
         return $this;
     }
 
     /**
-     * Get updateAt
+     * Get alt
      *
-     * @return \DateTime 
+     * @return string 
      */
-    public function getUpdateAt()
+    public function getAlt()
     {
-        return $this->updateAt;
+        return $this->alt;
+    }
+
+    /**
+     * Set danseuse
+     *
+     * @param \Agence\AgenceBundle\Entity\Danseuses $danseuse
+     * @return Media
+     */
+    public function setDanseuse(\Agence\AgenceBundle\Entity\Danseuses $danseuse = null)
+    {
+        $this->danseuse = $danseuse;
+
+        return $this;
+    }
+
+    /**
+     * Get danseuse
+     *
+     * @return \Agence\AgenceBundle\Entity\Danseuses 
+     */
+    public function getDanseuse()
+    {
+        return $this->danseuse;
     }
 }
