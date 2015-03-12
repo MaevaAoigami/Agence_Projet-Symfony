@@ -1,0 +1,29 @@
+{% extends "::layout/layout.html.twig" %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+	<div class="span3">
+        {% include '::modulesUsed/navigation.html.twig' %}
+    </div>
+
+        <div class="span9">
+            <ul class="thumbnails">
+
+                {% for event in evenements %}
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h4>{{ event.name }}</h4>
+                                {{ event.location }}
+                                {{ event.dateHour }}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

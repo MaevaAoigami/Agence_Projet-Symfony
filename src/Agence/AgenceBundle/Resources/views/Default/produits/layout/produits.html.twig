@@ -5,27 +5,36 @@
 <div class="container">
     <div class="row">
 	<div class="span3">
-        {% include '::modulesUsed/navigation.html.twig' %} 
+        {% include '::modulesUsed/navigation.html.twig' %}
     </div>
 
         <div class="span9">
             <ul class="thumbnails">
-            {% for i in 0..5 %}
-                <li class="span3">
-                    <div class="thumbnail">
-                        <img src="{{ asset('images/balerine.jpg') }}" alt="Balerine" width="300" height="300">
-                        <div class="caption">
-                            <h4>Nom de la Danseuse</h4>
 
-                            <a class="bouton" href="{{ path ('presentation') }}">Plus d'infos</a>
-                            <a class="bouton" href="{{ path ('panier') }}">Ajouter au panier</a>
+                {% for danseuse in danseuses %}
+                {% if danseuse.valider != 0 %}
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <img src="{{ danseuse.image.AssetPath }}" alt="{{ danseuse.image.name }}" width="300" height="300">
+                            <div class="caption">
+                                <h4>{{ danseuse.nom }}</h4>
+                                <h5>{{ danseuse.prix|tva(danseuse.tva.multiplicate) }} €</h5>
+
+                                <a class="bouton" href="{{ path('presentation',{ id: danseuse.id}) }}">Plus d'infos</a>
+                                {% if panier[danseuse.id] is not defined %}
+                                    <a class="bouton" href="{{ path ('ajouter', { id : danseuse.id }) }}">Ajouter au panier</a>
+                                {% endif %}
+
+                            </div>
                         </div>
-                    </div>
-                </li>
+                {% endif %}
                 {% endfor %}
             </ul>
-
+            
             <div class="pagination">
+                {{ knp_pagination_render(danseuses) }}
+            </div>
+            <!-- <div class="pagination">
                 <ul>
                     <li class="disabled"><span>Précédent</span></li>
                     <li class="disabled"><span>1</span></li>
@@ -35,7 +44,7 @@
                     <li><a href="#">5</a></li>
                     <li><a href="#">Suivant</a></li>
                 </ul>
-            </div>
+            </div> -->
 
         </div>
     </div>
