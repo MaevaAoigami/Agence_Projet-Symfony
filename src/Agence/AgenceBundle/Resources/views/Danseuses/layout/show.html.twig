@@ -23,7 +23,13 @@
             </tr>
             <tr>
                 <th>Disponible</th>
-                <td>{{ entity.disponible }}</td>
+                <td>
+                    {% if entity.disponible == 0 %}
+                        Non !
+                    {% else %}
+                        Oui !
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Categorie</th>

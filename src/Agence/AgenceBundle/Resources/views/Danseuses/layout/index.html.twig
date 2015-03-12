@@ -30,7 +30,13 @@
                 <td>{{ entity.nom }}</td>
                 <td>{{ entity.description }}</td>
                 <td>{{ entity.prix }}</td>
-                <td>{{ entity.disponible }}</td>
+                <td>
+                    {% if entity.disponible == 0 %}
+                        Non !
+                    {% else %}
+                        Oui !
+                    {% endif %} 
+                </td>
                 <td>{{ entity.categories }}</td>
                 <td>
                     {% if entity.valider == 0 %}

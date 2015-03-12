@@ -45,7 +45,7 @@ class Evenements
      *
      * @ORM\Column(name="DateHour", type="datetime", nullable=true)
     */
-    private $DateHour;
+    private $dateHour;
 
     /**
      * Get id

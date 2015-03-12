@@ -254,4 +254,27 @@ class Danseuses
     {
         return $this->categories;
     }
+
+    /**
+     * Set valider
+     *
+     * @param boolean $valider
+     * @return Danseuses
+     */
+    public function setValider($valider)
+    {
+        $this->valider = $valider;
+
+        return $this;
+    }
+
+    /**
+     * Get valider
+     *
+     * @return boolean 
+     */
+    public function getValider()
+    {
+        return $this->valider;
+    }
 }

@@ -22,7 +22,7 @@ class DanseusesType extends AbstractType
             ->add('disponible',null,array('required' => false))
             ->add('categories')
             ->add('image', new MediaType())
-            ->add('tva')
+            ->add('tva', 'entity' , array('read_only' => true, 'class' => 'Agence\AgenceBundle\Entity\Tva'))
         ;
     }
     

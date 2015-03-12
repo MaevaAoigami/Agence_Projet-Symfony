@@ -47,7 +47,6 @@ class PanierController extends Controller
         if (array_key_exists($id, $panier)) {
             if ($this->getRequest()->query->get('qte') != null) $panier[$id] = $this->getRequest()->query->get('qte');
             $this->get('session')->getFlashBag()->add('success', 'Quantité modifiée avec succès.');
-            // $this->get('session')->getFlashBag()->add('success','Quantité modifié avec succès');
         } else {
             if ($this->getRequest()->query->get('qte') != null)
                 $panier[$id] = $this->getRequest()->query->get('qte');

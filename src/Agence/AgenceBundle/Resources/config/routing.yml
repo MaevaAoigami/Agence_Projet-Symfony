@@ -11,6 +11,9 @@ agence_pages_danseuses:
     prefix:   /pages/danseuses
 
 
+evenements:
+    path:     /evenements
+    defaults: { _controller: AgenceBundle:Evenements:affichage }
 
 produits:
     path:     /

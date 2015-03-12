@@ -15,6 +15,23 @@ use Agence\AgenceBundle\Form\EvenementsType;
 class EvenementsController extends Controller
 {
 
+    public function affichageAction()
+    {
+        $session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+        
+        $findEvent = $em->getRepository('AgenceBundle:Evenements');
+
+        /*$evenements  = $this->get('knp_paginator');
+        $evenements = $evenements->paginate(
+            $findEvent,
+            $this->get('request')->query->get('page', 1)/*page number*/ //,
+            // 2 /*limit per page*/
+        // );
+        
+        return $this->render('AgenceBundle:Default:evenements/evenements.html.twig', array('evenements' => $findEvent));
+    }
+
     /**
      * Lists all Evenements entities.
      *
