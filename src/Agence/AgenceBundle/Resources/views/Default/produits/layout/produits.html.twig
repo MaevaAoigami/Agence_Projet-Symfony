@@ -12,7 +12,6 @@
             <ul class="thumbnails">
 
                 {% for danseuse in danseuses %}
-                {% if danseuse.valider != 0 %}
                     <li class="span3">
                         <div class="thumbnail">
                             <img src="{{ danseuse.image.AssetPath }}" alt="{{ danseuse.image.name }}" width="300" height="300">
@@ -27,7 +26,6 @@
 
                             </div>
                         </div>
-                {% endif %}
                 {% endfor %}
             </ul>
             

@@ -38,6 +38,7 @@
                     {% endif %} 
                 </td>
                 <td>{{ entity.categories }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
                 <td>
                     {% if entity.valider == 0 %}
                         Non !
@@ -45,6 +46,7 @@
                         Oui !
                     {% endif %} 
                 </td>
+                {% endif %}
                 <td>
                 <ul>
                     <li>
