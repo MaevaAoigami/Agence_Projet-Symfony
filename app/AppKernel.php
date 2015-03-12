@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             
             new Agence\AgenceBundle\AgenceBundle(),
-            new Pages\PagesBundle\PagesBundle(),
 
             #ici se trouve le FosUser
             new FOS\UserBundle\FOSUserBundle(),
@@ -26,6 +25,8 @@ class AppKernel extends Kernel
             new Utilisateurs\UtilisateursBundle\UtilisateursBundle(),
             #Ici se trouve le bundle Fixtures
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Pinano\Select2Bundle\PinanoSelect2Bundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

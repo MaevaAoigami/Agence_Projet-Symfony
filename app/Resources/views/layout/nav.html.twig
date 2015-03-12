@@ -19,10 +19,12 @@
         <li class="hvr-underline-from-center"><a href="#"> Home </a></li>
         <li class="hvr-underline-from-center"><a href="#"> Danseuses </a></li>
         <li class="hvr-underline-from-center"><a href="#"> Contact </a></li>
+        <li class="hvr-underline-from-center"><a href=" {{ path('facture') }}"> Mes factures</a></li>
+
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %} 
           <li class="hvr-underline-from-center"><a href="#">Se déconnecter</a></li>
         {% else %}
           <li class="hvr-underline-from-center"><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>

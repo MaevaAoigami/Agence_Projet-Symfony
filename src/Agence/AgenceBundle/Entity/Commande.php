@@ -70,7 +70,7 @@ class Commande
      * Set valider
      *
      * @param boolean $valider
-     * @return commande
+     * @return Commande
      */
     public function setValider($valider)
     {
@@ -93,7 +93,7 @@ class Commande
      * Set date
      *
      * @param \DateTime $date
-     * @return commande
+     * @return Commande
      */
     public function setDate($date)
     {
@@ -116,7 +116,7 @@ class Commande
      * Set reference
      *
      * @param integer $reference
-     * @return commande
+     * @return Commande
      */
     public function setReference($reference)
     {
@@ -139,7 +139,7 @@ class Commande
      * Set commande
      *
      * @param array $commande
-     * @return commande
+     * @return Commande
      */
     public function setCommande($commande)
     {
@@ -179,28 +179,5 @@ class Commande
     public function getUtilisateur()
     {
         return $this->utilisateur;
-    }
-
-    /**
-     * Set danseuses
-     *
-     * @param array $danseuses
-     * @return Commande
-     */
-    public function setDanseuses($danseuses)
-    {
-        $this->danseuses = $danseuses;
-
-        return $this;
-    }
-
-    /**
-     * Get danseuses
-     *
-     * @return array 
-     */
-    public function getDanseuses()
-    {
-        return $this->danseuses;
     }
 }

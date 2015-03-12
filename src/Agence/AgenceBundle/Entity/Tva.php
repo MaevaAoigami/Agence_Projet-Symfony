@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Tva
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\TvaRepository")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\TvaRepository")
  */
 class Tva
 {
@@ -22,7 +22,7 @@ class Tva
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Danseuses", mappedBy="tva")
+     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Danseuses", mappedBy="tva", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $danseuse;
@@ -166,5 +166,10 @@ class Tva
     public function getDanseuse()
     {
         return $this->danseuse;
+    }
+
+       public function __toString()
+    {
+        return $this->getName();
     }
 }

@@ -47,7 +47,6 @@ class PanierController extends Controller
         if (array_key_exists($id, $panier)) {
             if ($this->getRequest()->query->get('qte') != null) $panier[$id] = $this->getRequest()->query->get('qte');
             $this->get('session')->getFlashBag()->add('success', 'Quantité modifiée avec succès.');
-            // $this->get('session')->getFlashBag()->add('success','Quantité modifié avec succès');
         } else {
             if ($this->getRequest()->query->get('qte') != null)
                 $panier[$id] = $this->getRequest()->query->get('qte');
@@ -100,7 +99,7 @@ class PanierController extends Controller
         $em = $this->getDoctrine()->getManager();
         $utilisateur = $this->container->get('security.context')->getToken()->getUser();
         $entity = new UtilisateurAdresse();
-        $form = $this->createForm(new UtilisateurAdresseType(), $entity);
+        $form = $this->createForm(new UtilisateurAdresseType($em), $entity);
 
         if ($this->get('request')->getMethod() == 'POST')
         {
@@ -133,23 +132,26 @@ class PanierController extends Controller
             return $this->redirect($this->generateUrl('validation'));
         }
 
+        /* var_dump($adresse);
+        die(); */
+
         $session->set('adresse', $adresse);
         return $this->redirect($this->generateUrl('validation'));
     }
 
     public function validationAction()
     {
-        if($this->get('request')->getMethod() == 'POST') {
+        if ($this->get('request')->getMethod() == 'POST') {
             $this->setLivraisonOnSession();
         }
-
+        
         $em = $this->getDoctrine()->getManager();
         $prepareCommande = $this->forward('AgenceBundle:Commande:prepareCommande');
         $commande = $em->getRepository('AgenceBundle:Commande')->find($prepareCommande->getContent());
-
-        var_dump($commande);
-        die();
         
+        /* var_dump($commande);
+        die(); */
+
         return $this->render('AgenceBundle:Default:panier/validation.html.twig', array('commande' => $commande));
     }
 
