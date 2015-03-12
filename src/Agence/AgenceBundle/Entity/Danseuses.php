@@ -22,7 +22,7 @@ class Danseuses
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Agence\AgenceBundle\Entity\Media", cascade={"persist","remove"})
+     * @ORM\OneToOne(targetEntity="Agence\AgenceBundle\Entity\Media", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $image;

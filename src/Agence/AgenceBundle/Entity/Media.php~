@@ -1,19 +1,16 @@
 <?php
 namespace Agence\AgenceBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\validator\Constraints as Assert;
-
 /**
  * Media
  *
  * @ORM\Table("media")
  * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\MediaRepository")
- * @ORM\HasLifecycleCallbacks
  */
 class Media
 {
-    /**
+     /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -21,6 +18,12 @@ class Media
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    /**
+     * @var \DateTime
+     * 
+     * @ORM\COlumn(name="updated_at",type="datetime", nullable=true) 
+     */
+    private $updateAt;
     
     /**
      * @ORM\PostLoad()
@@ -101,7 +104,6 @@ class Media
     {
         if (file_exists($this->tempFile)) unlink($this->tempFile);
     }
-
     /**
      * Get id
      *
@@ -121,7 +123,26 @@ class Media
     {
         return $this->name;
     }
-
+    /**
+     * Set updateAt
+     *
+     * @param \DateTime $updateAt
+     * @return Media
+     */
+    public function setUpdateAt($updateAt)
+    {
+        $this->updateAt = $updateAt;
+        return $this;
+    }
+    /**
+     * Get updateAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
+    }
     /**
      * Set name
      *
@@ -131,10 +152,8 @@ class Media
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
-
     /**
      * Set path
      *
@@ -144,7 +163,6 @@ class Media
     public function setPath($path)
     {
         $this->path = $path;
-
         return $this;
     }
 }
