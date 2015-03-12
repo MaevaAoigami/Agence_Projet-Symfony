@@ -20,6 +20,9 @@ php app/console fos:user:promote
 ensuite le nom de l'utilisateur: Playerone
 ensuite: ROLE_USER
 
+<!-- Pour telecharger les photos avec fixitures -->
+php app/console doctrine:fixture:load
+
 <!-- Commandes git -->
 Dans le terminal, allez dans le dossier du Projet Agence_Projet-Symfony
 
@@ -31,4 +34,6 @@ git commit -am "Ton_message" <!-- Enregistre localement sur git l'ensemble des m
 git pull <!-- Permet de récupérer les modifications faites par une autre personne sur le projet sur git -->
 git push <!-- Envoie les modifications sur le git -->
 
+<!-- UTILE UTILE UTILE -->
+git reset --hard HEAD <!-- permet de recuperer le dernier envoie SI IL Y A UNE COUILLE PAR EXEMPLE TRES UTILE QUAND ON NE VERIFIE PAS LES FICHIERS AVANT LES ENVOIES -->
 

@@ -2,17 +2,29 @@ home:
     path:     /
     defaults: { _controller: AgenceBundle:Produits:home }
 
+categorieProduits:
+    path:     /categorie/{categorie}
+    defaults: { _controller: AgenceBundle:Produits:produits }    
+
 produits:
     path:     /danseuses
     defaults: { _controller: AgenceBundle:Produits:produits }
 
 presentation:
-    path:     /produit
+    path:     /danseuses/{id}
     defaults: { _controller: AgenceBundle:Produits:presentation }
 
 panier:
     path:     /panier
     defaults: { _controller: AgenceBundle:Panier:panier }
+
+ajouter:
+    path:     /ajouter/{id}
+    defaults: { _controller: AgenceBundle:Panier:ajouter }
+
+supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: AgenceBundle:Panier:supprimer }
 
 livraison:
     path:     /panier/livraison

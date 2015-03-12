@@ -1,6 +1,6 @@
 <?php
 
-namespace Agence\AgenceBundle\Entity;
+namespace Agence\AgenceBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

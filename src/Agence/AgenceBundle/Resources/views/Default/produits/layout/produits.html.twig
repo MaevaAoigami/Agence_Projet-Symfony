@@ -1,28 +1,44 @@
 {% extends "::layout/layout.html.twig" %}
 
+
 {% block body %}
 
 <div class="container">
     <div class="row">
 	<div class="span3">
         {% include '::modulesUsed/navigation.html.twig' %} 
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% include 'UtilisateursBundle:Default:modulesUsed/userConnected.html.twig' %} 
+        {% else %}
+            {% include 'UtilisateursBundle:Default:modulesUsed/utilisateurs.html.twig'%} 
+        {% endif %}  
+
+        {% render(controller('AgenceBundle:Panier:menu')) %}     
+        
     </div>
 
         <div class="span9">
             <ul class="thumbnails">
-            {% for i in 0..5 %}
+              
+                <!-- ici set trouve une boucle for danseuse in danseuses -->
+                {% for danseuse in danseuses %}
                 <li class="span3">
                     <div class="thumbnail">
-                        <img src="{{ asset('images/balerine.jpg') }}" alt="Balerine" width="300" height="300">
+                        <img src="{{ danseuse.image.path }}" alt="Balerine" width="300" height="300">
                         <div class="caption">
-                            <h4>Nom de la Danseuse</h4>
-
-                            <a class="bouton" href="{{ path ('presentation') }}">Plus d'infos</a>
-                            <a class="bouton" href="{{ path ('panier') }}">Ajouter au panier</a>
+                            <h4>{{ danseuse.nom }}</h4>
+                            <p>{{ danseuse.prix }} €</p>
+                            <a class="bouton" href="{{ path ('presentation' , { 'id' : danseuse.id }) }}">Plus d'infos</a>
+                            {% if panier[danseuse.id] is not defined %}
+                            <a class="bouton" href="{{ path ('ajouter' , { 'id' : danseuse.id }) }}">Ajouter au panier</a>
+                            {% endif %}
                         </div>
                     </div>
                 </li>
                 {% endfor %}
+               <!-- ici la fin avec end for -->
+
+
             </ul>
 
             <div class="pagination">

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * AdressesUtilisateurs
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\AdressesUtilisateursRepository")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\AdressesUtilisateursRepository")
  */
 class AdressesUtilisateurs
 {
@@ -20,6 +20,12 @@ class AdressesUtilisateurs
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Utilisateurs", inversedBy="adresses")
+     * @ORM\JoinColumn(nullable=true)
+     */ 
+    private $utilisateur;
 
     /**
      * @var string
@@ -270,5 +276,28 @@ class AdressesUtilisateurs
     public function getComplementInformation()
     {
         return $this->complementInformation;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur
+     * @return AdressesUtilisateurs
+     */
+    public function setUtilisateur(\Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
     }
 }

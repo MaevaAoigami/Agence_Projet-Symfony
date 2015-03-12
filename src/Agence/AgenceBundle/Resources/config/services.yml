@@ -2,3 +2,21 @@ services:
 #    agence.example:
 #        class: Agence\AgenceBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+
+services:
+    tva:
+        class: Agence\AgenceBundle\Twig\Extension\TvaExtension
+        tags:
+            - { name: twig.extension }
+
+    montantTva:
+        class: Agence\AgenceBundle\Twig\Extension\MontantTvaExtension
+        tags:
+            - { name: twig.extension }
+
+    redirectionListener:
+      class: Agence\AgenceBundle\Listener\RedirectionListener
+      arguments: [@service_container,@session]
+      tags:
+        - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

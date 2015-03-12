@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Commandes
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\CommandesRepository")
+ * @ORM\Table("commandes")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\CommandesRepository")
  */
 class Commandes
 {
@@ -20,6 +20,12 @@ class Commandes
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Utilisateurs", inversedBy="commandes")
+     * @ORM\JoinColumn(nullable=true)
+     */ 
+    private $utilisateur;
 
     /**
      * @var boolean
@@ -48,6 +54,7 @@ class Commandes
      * @ORM\Column(name="danseuses", type="array")
      */
     private $danseuses;
+
 
 
     /**
@@ -150,5 +157,28 @@ class Commandes
     public function getDanseuses()
     {
         return $this->danseuses;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur
+     * @return Commandes
+     */
+    public function setUtilisateur(\Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
     }
 }

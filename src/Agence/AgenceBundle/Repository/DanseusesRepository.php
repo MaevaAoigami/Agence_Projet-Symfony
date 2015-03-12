@@ -1,6 +1,6 @@
 <?php
 
-namespace Agence\AgenceBundle\Entity;
+namespace Agence\AgenceBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -12,4 +12,26 @@ use Doctrine\ORM\EntityRepository;
  */
 class DanseusesRepository extends EntityRepository
 {
+	public function findArray($array)
+	{
+		$qb = $this->createQueryBuilder('u')
+			->Select('u')
+			->Where('u.id IN (:array)')
+			->setParameter('array', $array);	
+
+			return $qb->getQuery()->getResult();
+	}
+
+	public function byCategorie($categorie)
+	{
+		// qb = query builder
+		$qb = $this->createQueryBuilder('u')
+		// on selection dans les Danseuses
+			->select('u')
+			->where('u.categorie = :categorie')
+			->orderBy('u.id')
+			->setParameter('categorie', $categorie);
+			// on retourne le resultat par accueil
+		return $qb->getQuery()->getResult();	
+	}
 }

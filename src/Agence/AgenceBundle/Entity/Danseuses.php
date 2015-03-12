@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Danseuses
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\DanseusesRepository")
+ * @ORM\Table("danseuses")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\DanseusesRepository")
  */
 class Danseuses
 {
@@ -20,6 +20,24 @@ class Danseuses
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Agence\AgenceBundle\Entity\Media", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */ 
+    private $image;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Categories", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */ 
+    private $categorie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Tva", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */ 
+    private $tva;
 
     /**
      * @var string
@@ -34,13 +52,6 @@ class Danseuses
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="la_description", type="text")
-     */
-    private $laDescription;
 
     /**
      * @var float
@@ -180,5 +191,74 @@ class Danseuses
     public function getDisponibilite()
     {
         return $this->disponibilite;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Agence\AgenceBundle\Entity\Media $image
+     * @return Danseuses
+     */
+    public function setImage(\Agence\AgenceBundle\Entity\Media $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Agence\AgenceBundle\Entity\Media 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \Agence\AgenceBundle\Entity\Categories $categorie
+     * @return Danseuses
+     */
+    public function setCategorie(\Agence\AgenceBundle\Entity\Categories $categorie)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Agence\AgenceBundle\Entity\Categories 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set tva
+     *
+     * @param \Agence\AgenceBundle\Entity\Tva $tva
+     * @return Danseuses
+     */
+    public function setTva(\Agence\AgenceBundle\Entity\Tva $tva)
+    {
+        $this->tva = $tva;
+
+        return $this;
+    }
+
+    /**
+     * Get tva
+     *
+     * @return \Agence\AgenceBundle\Entity\Tva 
+     */
+    public function getTva()
+    {
+        return $this->tva;
     }
 }
