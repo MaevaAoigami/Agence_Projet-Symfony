@@ -69,19 +69,18 @@ h3{
 =============*/
 .bouton{
   margin-top: 10px;
-	border:#000 solid 3px;
+	border:beige solid 3px;
 	padding: 7px;
+  text-transform: capitalize;
 }
 
 .bouton:hover{
-
-	border: pink 3px solid;
-	border:lavender solid 3px;
-	padding: 7px;
+	border: #ccc solid 3px;
+	
 }
 
 a.bouton{
-  font-size: 0.7em;
+  font-size: 0.8em;
   color: #CCC;
   margin-top: 10px;
 }
@@ -254,6 +253,7 @@ a.bouton{
     -ms-animation-delay: 30s;
     animation-delay: 30s;
 }
+
 
 /*LES IMAGES TRANSITION
 =======================*/
