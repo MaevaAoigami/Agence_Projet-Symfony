@@ -115,6 +115,6 @@ class CommandeController extends Controller
         $session->remove('panier');
 
         $this->get('session')->getFlashBag()->add('success', 'Votre commande est validée avec succès.');
-        return $this->redirect($this->generateUrl('produits'));
+        return $this->redirect($this->generateUrl('facture'));
     }
 }

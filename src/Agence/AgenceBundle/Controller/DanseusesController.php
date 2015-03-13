@@ -145,10 +145,11 @@ class DanseusesController extends Controller
     {
         $form = $this->createForm(new DanseusesType(), $entity, array(
             'action' => $this->generateUrl('pages_danseuses_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
+            'method' => 'POST',
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
+
 
         return $form;
     }
@@ -172,7 +173,7 @@ class DanseusesController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
+            
             return $this->redirect($this->generateUrl('pages_danseuses_edit', array('id' => $id)));
         }
 

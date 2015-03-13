@@ -10,6 +10,10 @@ agence_pages_danseuses:
     resource: "@AgenceBundle/Resources/config/routing/danseuses.yml"
     prefix:   /pages/danseuses
 
+agence_admin_danseuses:
+    resource: "@AgenceBundle/Resources/config/routing/danseusesAdmin.yml"
+    prefix:   /admin/danseuses
+
 
 home:
     path:     /
@@ -62,3 +66,11 @@ test:
 evenements:
     path:     /evenements
     defaults: { _controller: AgenceBundle:Evenements:affichage }
+
+adminCommande:
+    pattern:  /admin/commande
+    defaults: { _controller: AgenceBundle:CommandeAdmin:commandes }
+
+adminShowFacture:
+    pattern:  /admin/show/facture/{id}
+    defaults: { _controller: AgenceBundle:CommandeAdmin:showFacture }
