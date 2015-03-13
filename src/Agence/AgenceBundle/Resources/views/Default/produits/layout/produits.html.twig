@@ -14,14 +14,14 @@
                 {% for danseuse in danseuses %}
                     <li class="span3">
                         <div class="thumbnail">
-                            <img src="{{ asset(danseuse.image.AssetPath) }}" alt="{{ danseuse.image.name }}" width="300" height="300">
+                            <img src="{{ asset(danseuse.image.AssetPath) }}" alt="{{ danseuse.image.name }}" >
                             <div class="caption">
                                 <h4>{{ danseuse.nom }}</h4>
                                 <h5>{{ danseuse.prix|tva(danseuse.tva.multiplicate) }} €</h5>
 
                                 <a class="bouton" href="{{ path('presentation',{ id: danseuse.id}) }}">Plus d'infos</a>
                                 {% if panier[danseuse.id] is not defined %}
-                                    <a class="bouton" href="{{ path ('ajouter', { id : danseuse.id }) }}">Ajouter au panier</a>
+                                    <a class="bouton" href="{{ path ('ajouter', { id : danseuse.id }) }}">Ajouter à ma demande</a>
                                 {% endif %}
 
                             </div>

@@ -18,7 +18,7 @@
 body {
 	padding-bottom: 40px;
     padding-top: 60px;
-    background-color: lavender;
+    background-color: #lavender;
 }
 h1{
 	color: #fff;
@@ -38,14 +38,37 @@ ul li{
 }
 
 h1{
-  font-family: 'alex_brushregular', cursive, serif;
+  font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.5em;
+}
+h4{
+  font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.8em !important;
+  color: cccccc;
+  margin: 1em;
+}
+h5{
+  margin:1.5em !important;
+  color: #ccc;
+}
+
+h3{
+  font-size: 1.2em;
+  color:#000;
+}
+.span3{
+  margin-left: 0px;
+}
+
+.well{
+
 }
 
 
 /*LES BOUTONS
 =============*/
 .bouton{
+  margin-top: 10px;
 	border:#000 solid 3px;
 	padding: 7px;
 }
@@ -55,6 +78,12 @@ h1{
 	border: pink 3px solid;
 	border:lavender solid 3px;
 	padding: 7px;
+}
+
+a.bouton{
+  font-size: 0.7em;
+  color: #CCC;
+  margin-top: 10px;
 }
 
 /* Underline From Center */
@@ -145,6 +174,9 @@ h1{
     padding: 0 30px;
     line-height: 120px;
     color: rgba(250,250,250, 0.8);
+}
+.cb-slideshow h3{
+  color: #fff;
 }
 .cb-slideshow li:nth-child(1) span { background-image: url(../images/home/6.jpg) }
 .cb-slideshow li:nth-child(2) span {
@@ -469,13 +501,13 @@ footer {
 .jumbotron .block{
   margin:0 auto;
   width: 40%;
-  border:7px solid beige;
+  border: 2px solid beige;
 }
 .jumbotron{
   width: 100%;
 	position: absolute;
 	top: 15em;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(245, 245, 220, 0.2);
 }
 .jumbotron p{
   font-family: 'lato', 'Arial Narrow', Arial, sans-serif !important;
@@ -487,12 +519,16 @@ footer {
 	color: white;
 	text-align: center;
 }
+.jumbotron a{
+  text-transform: ;
+  color: #000;
+}
 
 
 /* la navigation
 =============== */
 nav{
-	height: 50px;
+	height: 60px;
 	background-color: #fff;
 }
 nav a{

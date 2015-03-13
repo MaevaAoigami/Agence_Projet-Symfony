@@ -10,7 +10,7 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ entity.name }}</td>
             </tr>
         </tbody>
@@ -19,12 +19,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('admin_categories') }}">
-            Back to the list
+            Retour à la liste
         </a>
     </li>
     <li>
         <a href="{{ path('admin_categories_edit', { 'id': entity.id }) }}">
-            Edit
+            Modifier
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
