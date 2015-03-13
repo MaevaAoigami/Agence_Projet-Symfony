@@ -5,8 +5,9 @@ namespace Agence\AgenceBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Agence\AgenceBundle\Form\DanseusesType;
 use Doctrine\ORM\EntityRepository;
+use Agence\AgenceBundle\Form\DanseusesType;
+use Agence\AgenceBundle\Form\MediaEventType;
 
 class EvenementsType extends AbstractType
 {
@@ -20,6 +21,7 @@ class EvenementsType extends AbstractType
             ->add('name')
             ->add('location')
             ->add('dateHour')
+            ->add('image', new MediaEventType())
             ->add('danseuses', 'entity', array(
                 'class' => 'AgenceBundle:Danseuses',
                 'multiple' => true,

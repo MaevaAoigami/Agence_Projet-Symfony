@@ -29,7 +29,7 @@ class EvenementsController extends Controller
              2 /*limit per page*/
          );
         
-        return $this->render('AgenceBundle:Default:evenements/evenements.html.twig', array('evenements' => $findEvent));
+        return $this->render('AgenceBundle:Default:evenements/evenements.html.twig', array('evenements' => $evenements));
     }
 
     /**
@@ -55,7 +55,7 @@ class EvenementsController extends Controller
         $entity = new Evenements();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
+        
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -67,7 +67,7 @@ class EvenementsController extends Controller
         return $this->render('AgenceBundle:Evenements:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
+        )); 
     }
 
     /**
@@ -102,6 +102,7 @@ class EvenementsController extends Controller
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
+
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Agence\AgenceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Evenements
@@ -20,6 +21,12 @@ class Evenements
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Agence\AgenceBundle\Entity\MediaEvent", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $image;
 
     /**
    * @ORM\ManyToMany(targetEntity="Agence\AgenceBundle\Entity\Danseuses", cascade={"persist"})
@@ -164,5 +171,28 @@ class Evenements
     public function getDateHour()
     {
         return $this->dateHour;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Agence\AgenceBundle\Entity\MediaEvent $image
+     * @return Evenements
+     */
+    public function setImage(\Agence\AgenceBundle\Entity\MediaEvent $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Agence\AgenceBundle\Entity\MediaEvent 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

@@ -4,8 +4,8 @@
     <h1>Danseuses edit</h1> 
      {{form_errors(edit_form) }}
     <form action="{{ path('admin_danseuses_update', { 'id' : entity.id }) }}" method="POST" {{ form_enctype(edit_form) }}>
-    	{# {{ form(edit_form) }} #}
-    <div>
+    	{{ form(edit_form) }}
+    {# <div>
         {{ form_label(edit_form.nom) }}
         {{ form_errors(edit_form.nom) }}
         {{ form_widget(edit_form.nom) }}
@@ -46,7 +46,7 @@
         {{ form_widget(edit_form.categories) }}
     </div>
 
-    {{ form_rest(edit_form) }}
+    {{ form_rest(edit_form) }} #}
 
     </form>
     

@@ -65,7 +65,7 @@ test:
 
 evenements:
     path:     /evenements
-    defaults: { _controller: AgenceBundle:Evenements:affichage }
+    defaults: { _controller: AgenceBundle:EventPresentation:presentation }
 
 adminCommande:
     pattern:  /admin/commande
