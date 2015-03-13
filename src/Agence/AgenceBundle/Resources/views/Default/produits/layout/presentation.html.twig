@@ -37,12 +37,13 @@
                             </select>
 
                             <div>
-                                <button class="btn btn-primary">Ajouter à ma demande</button>
+                                <button class="bouton">Ajouter à ma demande</button>
                             </div>
                         </form>
                         {% else %}
+                        
                             <div>
-                                <a href="{{ path('panier') }}" class="btn btn-primary">La danseuse est déjà dans votre commande</a>
+                                <a href="{{ path('panier') }}" class="bouton">La danseuse est déjà dans votre commande</a>
                             </div>
                         {% endif %}
 						

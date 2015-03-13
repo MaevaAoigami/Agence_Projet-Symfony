@@ -41,21 +41,26 @@ h1{
   font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.5em;
 }
+h2{
+  font-size: 1.4em !important;
+  text-transform: uppercase;
+}
+h3{
+  font-size: 1.3em;
+  color:#000;
+}
 h4{
   font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
-  font-size: 1.8em !important;
-  color: cccccc;
+  font-size: 1.2em !important;
+  color: #cccccc;
   margin: 1em;
 }
 h5{
-  margin:1.5em !important;
+  margin: 1em !important;
   color: #ccc;
 }
 
-h3{
-  font-size: 1.2em;
-  color:#000;
-}
+
 .span3{
   margin-left: 0px;
 }
@@ -70,18 +75,19 @@ h3{
 .bouton{
   margin-top: 10px;
 	border:beige solid 3px;
-	padding: 7px;
-  text-transform: capitalize;
+	padding: 9px;
+ 
 }
 
 .bouton:hover{
 	border: #ccc solid 3px;
+  text-decoration: underline;
 	
 }
 
 a.bouton{
-  font-size: 0.8em;
-  color: #CCC;
+  font-size: 0.7em;
+  color: #000;
   margin-top: 10px;
 }
 
