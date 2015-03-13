@@ -22,7 +22,7 @@
                 <td>{{ entity.prix }}</td>
             </tr>
             <tr>
-                <th>Disponible</th>
+                <th>Disponibilité</th>
                 <td>
                     {% if entity.disponible == 0 %}
                         Non !
@@ -41,12 +41,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('pages_danseuses') }}">
-            Back to the list
+            Retour à la liste
         </a>
     </li>
     <li>
         <a href="{{ path('pages_danseuses_edit', { 'id': entity.id }) }}">
-            Edit
+            Modifier
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

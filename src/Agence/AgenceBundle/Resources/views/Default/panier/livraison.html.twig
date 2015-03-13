@@ -12,7 +12,7 @@
                         {% if utilisateur.adresses|length != 0  %}
                         <form action="{{ path('validation') }}" method="POST">
 
-                            <h4>Adresse de livraison</h4>
+                            <h4>Adresse pour la préstation</h4>
                             {% for adresse in utilisateur.adresses %}
                             <label class="radio">
                                 <input type="radio" name="livraison" value="{{ adresse.id }}" {% if loop.index0 == 0 %}checked="checked"{% endif %}>
