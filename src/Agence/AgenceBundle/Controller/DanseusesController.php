@@ -150,6 +150,7 @@ class DanseusesController extends Controller
 
         $form->add('submit', 'submit', array('label' => 'Update'));
 
+
         return $form;
     }
     /**
@@ -172,7 +173,10 @@ class DanseusesController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
+            
+            var_dump($editForm);
+            die();
+            
             return $this->redirect($this->generateUrl('pages_danseuses_edit', array('id' => $id)));
         }
 
