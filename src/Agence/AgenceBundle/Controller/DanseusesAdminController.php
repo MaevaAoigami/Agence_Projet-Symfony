@@ -89,7 +89,7 @@ class DanseusesAdminController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Modifier'));
 
 
         return $form;
@@ -161,7 +161,9 @@ class DanseusesAdminController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('admin_danseuses_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Supprimer',
+                                             'attr' => array('class' => 'bouton'),
+                                             ))
             ->getForm()
         ;
     }
