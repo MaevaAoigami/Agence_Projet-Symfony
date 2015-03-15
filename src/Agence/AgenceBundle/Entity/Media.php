@@ -1,14 +1,13 @@
 <?php
-
 namespace Agence\AgenceBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\validator\Constraints as Assert;
 /**
  * Media
  *
  * @ORM\Table("media")
  * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\MediaRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Media
 {
@@ -22,35 +21,84 @@ class Media
     private $id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Danseuses", inversedBy="media")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\PostLoad()
      */
-    private $danseuse;
-
+    public function postLoad()
+    {
+        $this->updateAt = new \DateTime();
+    }
+    
     /**
-     * @var string
-     *
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(type="string",length=255) 
+     * @Assert\NotBlank
+     */
+    private $name;
+    
+    /**
+     * @ORM\Column(type="string",length=255, nullable=true) 
      */
     private $path;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="alt", type="string", length=255)
-     */
-    private $alt;
-
-    /**
-     * Transform to string
-     * 
-     * @return string
-     */
-    public function __toString()
+    
+    public $file;
+    
+    public function getUploadRootDir()
     {
-        return (string) $this->getId();
+        return __dir__.'/../../../../web/uploads';
     }
-
+    
+    public function getAbsolutePath()
+    {
+        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+    }
+    
+    public function getAssetPath()
+    {
+        return 'uploads/'.$this->path;
+    }
+    
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate() 
+     */
+    public function preUpload()
+    {
+        $this->tempFile = $this->getAbsolutePath();
+        $this->oldFile = $this->getPath();
+        $this->updateAt = new \DateTime();
+        
+        if (null !== $this->file) 
+            $this->path = sha1(uniqid(mt_rand(),true)).'.'.$this->file->guessExtension();
+    }
+    
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate() 
+     */
+    public function upload()
+    {
+        if (null !== $this->file) {
+            $this->file->move($this->getUploadRootDir(),$this->path);
+            unset($this->file);
+            
+            if ($this->oldFile != null) unlink($this->tempFile);
+        }
+    }
+    
+    /**
+     * @ORM\PreRemove() 
+     */
+    public function preRemoveUpload()
+    {
+        $this->tempFile = $this->getAbsolutePath();
+    }
+    
+    /**
+     * @ORM\PostRemove() 
+     */
+    public function removeUpload()
+    {
+        if (file_exists($this->tempFile)) unlink($this->tempFile);
+    }
     /**
      * Get id
      *
@@ -60,73 +108,36 @@ class Media
     {
         return $this->id;
     }
-
-    /**
-     * Set path
-     *
-     * @param string $path
-     * @return media
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-
-        return $this;
-    }
-
-    /**
-     * Get path
-     *
-     * @return string 
-     */
+    
     public function getPath()
     {
         return $this->path;
     }
-
-    /**
-     * Set alt
-     *
-     * @param string $alt
-     * @return media
-     */
-    public function setAlt($alt)
+    
+    public function getName()
     {
-        $this->alt = $alt;
-
-        return $this;
+        return $this->name;
     }
-
     /**
-     * Get alt
+     * Set name
      *
-     * @return string 
-     */
-    public function getAlt()
-    {
-        return $this->alt;
-    }
-
-    /**
-     * Set danseuse
-     *
-     * @param \Agence\AgenceBundle\Entity\Danseuses $danseuse
+     * @param string $name
      * @return Media
      */
-    public function setDanseuse(\Agence\AgenceBundle\Entity\Danseuses $danseuse = null)
+    public function setName($name)
     {
-        $this->danseuse = $danseuse;
-
+        $this->name = $name;
         return $this;
     }
-
     /**
-     * Get danseuse
+     * Set path
      *
-     * @return \Agence\AgenceBundle\Entity\Danseuses 
+     * @param string $path
+     * @return Media
      */
-    public function getDanseuse()
+    public function setPath($path)
     {
-        return $this->danseuse;
+        $this->path = $path;
+        return $this;
     }
 }
