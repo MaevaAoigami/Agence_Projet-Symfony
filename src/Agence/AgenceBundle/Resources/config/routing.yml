@@ -14,7 +14,6 @@ agence_admin_danseuses:
     resource: "@AgenceBundle/Resources/config/routing/danseusesAdmin.yml"
     prefix:   /admin/danseuses
 
-
 home:
     path:     /
     defaults: { _controller: AgenceBundle:Produits:home }

@@ -20,7 +20,7 @@
 				<div class="span9">
 
                     {% for flashMessage in app.session.flashbag.get('success') %}
-                        <div class="alert alert-success">
+                        <div class="alert alert-success bouton" >
                             {{ flashMessage }}
                         </div>
                     {% endfor %}
@@ -81,9 +81,9 @@
                     <dd>{{ totalTTC }} €</dd>
                 </dl>
                 <div class="clearfix"></div>
-                <a href="{{ path('livraison') }}" class="btn btn-success pull-right">Valider ma demande</a>
+                <a href="{{ path('livraison') }}" class="bouton">Valider ma demande</a>
                 {% endif %}
-                <a href="{{ path('produits') }}" class="btn btn-primary">Continuer mes recherches</a>
+                <a href="{{ path('produits') }}" class="bouton">Continuer mes recherches</a>
             </div>
 		
 		</div>

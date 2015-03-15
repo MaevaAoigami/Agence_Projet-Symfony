@@ -21,7 +21,7 @@
 
                                 <a class="bouton" href="{{ path('presentation',{ id: danseuse.id}) }}">Plus d'infos</a>
                                 {% if panier[danseuse.id] is not defined %}
-                                    <a class="bouton" href="{{ path ('ajouter', { id : danseuse.id }) }}">Ajouter à ma demande</a>
+                                    <a class="bouton" href="{{ path ('ajouter', { id : danseuse.id }) }}">Ajouter</a>
                                 {% endif %}
 
                             </div>

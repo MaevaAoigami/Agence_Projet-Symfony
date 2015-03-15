@@ -1,7 +1,7 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
-    <h1>Danseuses edit</h1> 
+{% block body %}
+    <h1>Danseuses edition</h1> 
      {{form_errors(edit_form) }}
     <form action="{{ path('pages_danseuses_update', { 'id' : entity.id }) }}" method="POST" {{ form_enctype(edit_form) }}>
         {# {{ form(edit_form) }} #}

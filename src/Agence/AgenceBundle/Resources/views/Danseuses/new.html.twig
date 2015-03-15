@@ -1,15 +1,30 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
-    <h1>Danseuses creation</h1>
+{% block body %}
 
-    {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('pages_danseuses') }}">
-            Retour à la liste
-        </a>
-    </li>
-</ul>
+<div class="enregistrement">
+<div class="row">
+        <div class="inscription">     
+            <div class="register_content">
+                <div class="frame">
+                    <div class="inscription_container">
+                        <h4>Danseuses</h4>
+                        <h3>creation de profil</h3>
+                        {{ form(form) }}
+
+				        <ul class="record_actions">
+						    <li>
+						        <a href="{{ path('pages_danseuses') }}" class="bouton">Retour à la liste</a>
+						    </li>
+						</ul>
+                    </div>
+                </div>    
+            </div>        
+                
+            
+        </div> <!-- end span 12 --> 
+</div> <!-- end row -->    
+</div> <!-- end enregistrement --> 
 {% endblock %}
+

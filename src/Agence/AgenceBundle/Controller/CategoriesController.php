@@ -33,6 +33,8 @@ class CategoriesController extends Controller
      * Creates a new Categories entity.
      *
      */
+
+    /* ic reverififeore cette entité et mettre le slider ici*/
     public function createAction(Request $request)
     {
         $entity = new Categories();
