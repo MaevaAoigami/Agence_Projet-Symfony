@@ -15,6 +15,14 @@ use Agence\AgenceBundle\Form\CategoriesType;
 class CategoriesController extends Controller
 {
 
+    public function menuAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('AgenceBundle:Categories')->findAll();
+        
+        return $this->render('AgenceBundle:Default:modulesUsed/menu.html.twig', array('categories' => $categories));
+    }
+
     /**
      * Lists all Categories entities.
      *

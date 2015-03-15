@@ -6,26 +6,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ProduitsController extends Controller
 {
-    public function produitsAction()
+    public function produitsAction(Categories $categorie = null)
     {
         $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
         
-        $findDanseuses = $em->getRepository('AgenceBundle:Danseuses')->findBy(array('disponible' => 1));
-        if ($session->has('panier'))
-        	$panier = $session->get('panier');
+        if ($categorie != null)
+            $findDanseuses = $em->getRepository('AgenceBundle:Danseuses')->byCategorie($categorie);
         else 
-        	$panier = false;
-
-        $danseuses  = $this->get('knp_paginator');
-        $danseuses = $danseuses->paginate(
-            $findDanseuses,
-            $this->get('request')->query->get('page', 1)/*page number*/,
-            6/*limit per page*/
-        );
+            $findDanseuses = $em->getRepository('AgenceBundle:Danseuses')->findBy(array('disponible' => 1));
+        
+        if ($session->has('panier'))
+            $panier = $session->get('panier');
+        else
+            $panier = false;
+        
+        $danseuses = $this->get('knp_paginator')->paginate($findDanseuses,$this->get('request')->query->get('page', 1),6);
         
         return $this->render('AgenceBundle:Default:produits/layout/produits.html.twig', array('danseuses' => $danseuses,
-                                                                                              'panier' => $panier));
+                                                                                                 'panier' => $panier));
     }
     public function homeAction()
     {

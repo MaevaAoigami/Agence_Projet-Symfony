@@ -21,4 +21,15 @@ class DanseusesRepository extends EntityRepository
                 ->setParameter('array', $array);
         return $qb->getQuery()->getResult();
     }
+
+    public function byCategorie($categorie)
+    {
+         $qb = $this->createQueryBuilder('u')
+                    ->select('u')
+                    ->where('u.categorie = :categorie')
+                    ->andWhere('u.disponible = 1')
+                    ->orderBy('u.id')
+                    ->setParameter('categorie', $categorie);
+        return $qb->getQuery()->getResult();
+    }
 }
