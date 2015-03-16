@@ -39,6 +39,12 @@ class Utilisateurs extends BaseUser
     private $adresses;
 
     /**
+     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Danseuses", mappedBy="utilisateur", cascade={"remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $danseuse;
+
+    /**
      * Get id
      *
      * @return integer 

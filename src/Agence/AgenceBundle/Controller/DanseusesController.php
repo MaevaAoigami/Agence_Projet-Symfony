@@ -42,6 +42,7 @@ class DanseusesController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity->setValider(0);
+            $entity->setUtilisateur($this->container->get('security.context')->getToken()->getUser());
             $em->persist($entity);
             $em->flush();
 

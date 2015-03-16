@@ -39,6 +39,12 @@ class Utilisateurs extends BaseUser
     private $adresses;
 
     /**
+     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Danseuses", mappedBy="utilisateur", cascade={"remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $danseuse;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -112,5 +118,38 @@ class Utilisateurs extends BaseUser
     public function getAdresses()
     {
         return $this->adresses;
+    }
+
+    /**
+     * Add danseuse
+     *
+     * @param \Agence\AgenceBundle\Entity\Danseuses $danseuse
+     * @return Utilisateurs
+     */
+    public function addDanseuse(\Agence\AgenceBundle\Entity\Danseuses $danseuse)
+    {
+        $this->danseuse[] = $danseuse;
+
+        return $this;
+    }
+
+    /**
+     * Remove danseuse
+     *
+     * @param \Agence\AgenceBundle\Entity\Danseuses $danseuse
+     */
+    public function removeDanseuse(\Agence\AgenceBundle\Entity\Danseuses $danseuse)
+    {
+        $this->danseuse->removeElement($danseuse);
+    }
+
+    /**
+     * Get danseuse
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDanseuse()
+    {
+        return $this->danseuse;
     }
 }
