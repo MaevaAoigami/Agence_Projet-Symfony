@@ -5,12 +5,12 @@ namespace Agence\AgenceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MediaEvent
+ * MediaGalerie
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\MediaEventRepository")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\MediaGalerieRepository")
  */
-class MediaEvent
+class MediaGalerie
 {
     /**
      * @var integer
@@ -20,6 +20,12 @@ class MediaEvent
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\MediaGalerie", inversedBy="galerie", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $danseuse;
 
     /**
      * @ORM\PostLoad()
@@ -46,7 +52,7 @@ public $file;
     
     public function getUploadRootDir()
     {
-        return __dir__.'/../../../../web/uploads_event';
+        return __dir__.'/../../../../web/uploads_galerie';
     }
     
     public function getAbsolutePath()
@@ -56,7 +62,7 @@ public $file;
     
     public function getAssetPath()
     {
-        return 'uploads_event/'.$this->path;
+        return 'uploads_galerie/'.$this->path;
     }
     
     /**
@@ -127,7 +133,7 @@ public $file;
      * Set name
      *
      * @param string $name
-     * @return MediaEvent
+     * @return MediaGalerie
      */
     public function setName($name)
     {
@@ -140,12 +146,35 @@ public $file;
      * Set path
      *
      * @param string $path
-     * @return MediaEvent
+     * @return MediaGalerie
      */
     public function setPath($path)
     {
         $this->path = $path;
 
         return $this;
+    }
+
+    /**
+     * Set danseuse
+     *
+     * @param \Agence\AgenceBundle\Entity\MediaGalerie $danseuse
+     * @return MediaGalerie
+     */
+    public function setDanseuse(\Agence\AgenceBundle\Entity\MediaGalerie $danseuse)
+    {
+        $this->danseuse = $danseuse;
+
+        return $this;
+    }
+
+    /**
+     * Get danseuse
+     *
+     * @return \Agence\AgenceBundle\Entity\MediaGalerie 
+     */
+    public function getDanseuse()
+    {
+        return $this->danseuse;
     }
 }

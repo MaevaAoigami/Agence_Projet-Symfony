@@ -11,9 +11,7 @@ class EventPresentationController extends Controller
         $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
         $evenement = $em->getRepository('AgenceBundle:Evenements')->findAll();
-        
-        if (!$evenement) throw $this->createNotFoundException('La page n\'existe pas.');
-        
+
         return $this->render('AgenceBundle:Default:evenements/evenements.html.twig', array('evenement' => $evenement));
     }
 }

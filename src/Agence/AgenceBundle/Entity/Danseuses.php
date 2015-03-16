@@ -28,6 +28,12 @@ class Danseuses
     private $image;
 
     /**
+     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\MediaGalerie", mappedBy="danseuse", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $galerie;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Tva",  inversedBy="danseuse", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
@@ -305,5 +311,45 @@ class Danseuses
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->galerie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add galerie
+     *
+     * @param \Agence\AgenceBundle\Entity\MediaGalerie $galerie
+     * @return Danseuses
+     */
+    public function addGalerie(\Agence\AgenceBundle\Entity\MediaGalerie $galerie)
+    {
+        $this->galerie[] = $galerie;
+
+        return $this;
+    }
+
+    /**
+     * Remove galerie
+     *
+     * @param \Agence\AgenceBundle\Entity\MediaGalerie $galerie
+     */
+    public function removeGalerie(\Agence\AgenceBundle\Entity\MediaGalerie $galerie)
+    {
+        $this->galerie->removeElement($galerie);
+    }
+
+    /**
+     * Get galerie
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGalerie()
+    {
+        return $this->galerie;
     }
 }
