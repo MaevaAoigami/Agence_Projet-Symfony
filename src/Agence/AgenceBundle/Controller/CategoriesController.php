@@ -20,7 +20,7 @@ class CategoriesController extends Controller
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('AgenceBundle:Categories')->findAll();
         
-        return $this->render('AgenceBundle:Default:modulesUsed/menu.html.twig', array('categories' => $categories));
+        return $this->render('AgenceBundle:Default:categories/menu.html.twig', array('categories' => $categories));
     }
 
     /**
@@ -41,8 +41,6 @@ class CategoriesController extends Controller
      * Creates a new Categories entity.
      *
      */
-
-    /* ic reverififeore cette entité et mettre le slider ici*/
     public function createAction(Request $request)
     {
         $entity = new Categories();

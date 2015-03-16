@@ -35,3 +35,4 @@
 
 # Composer PHAR
 /composer.phar
+src/Agence/AgenceBundle/Resources/views/Default/untitled.html

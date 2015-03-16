@@ -26,7 +26,7 @@ class DanseusesRepository extends EntityRepository
     {
          $qb = $this->createQueryBuilder('u')
                     ->select('u')
-                    ->where('u.categorie = :categorie')
+                    ->where('u.categories = :categorie')
                     ->andWhere('u.disponible = 1')
                     ->orderBy('u.id')
                     ->setParameter('categorie', $categorie);

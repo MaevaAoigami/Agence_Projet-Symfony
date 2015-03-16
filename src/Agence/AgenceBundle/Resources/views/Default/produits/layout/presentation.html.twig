@@ -19,13 +19,13 @@
 			<div class="span9">
 				<div class="row">
 					<div class="span5">
-						<img src="{{ asset(danseuse.image.AssetPath) }}" alt="{{ danseuse.image.name }}" style="width:70%">
+						<img src="{{ asset(danseuse.image.AssetPath) }}" alt="{{ danseuse.image.name }}">
 					</div>
 
 					<div class="span4">
 						<h4>{{ danseuse.nom }}</h4>
 						<h5>{{ danseuse.categories }}</h5>
-						<p class="description_danseuse">{{ danseuse.description }}</p>
+						<p>{{ danseuse.description }}</p>
 						<h4>{{ danseuse.prix|tva(danseuse.tva.multiplicate) }} €</h4>
 						
 						{% if panier[danseuse.id] is not defined %}
@@ -43,7 +43,7 @@
                         {% else %}
                         
                             <div>
-                                <a href="{{ path('panier') }}" class="bouton">Cette danseuse est déjà dans votre commande</a>
+                                <a href="{{ path('panier') }}" class="bouton">La danseuse est déjà dans votre commande</a>
                             </div>
                         {% endif %}
 						

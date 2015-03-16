@@ -15,7 +15,7 @@ use Agence\AgenceBundle\Form\DanseusesType;
 class DanseusesAdminController extends Controller
 {
 	/**
-     * listwe toutes les danseuses de chaque entités
+     * Lists all Danseuses entities.
      *
      */
     public function indexAction()

@@ -3,6 +3,7 @@
 namespace Agence\AgenceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Agence\AgenceBundle\Entity\Categories;
 
 class ProduitsController extends Controller
 {
