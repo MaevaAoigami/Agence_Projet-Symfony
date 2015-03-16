@@ -22,10 +22,12 @@ class DanseusesController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.context')->getToken()->getUser();
 
-        $entities = $em->getRepository('AgenceBundle:Danseuses')->findAll();
+        $entities = $em->getRepository('AgenceBundle:Danseuses')->findBy(array('setUtilisateur' => $user));
 
         return $this->render('AgenceBundle:Danseuses:index.html.twig', array(
+            'user' => $user,
             'entities' => $entities,
         ));
     }

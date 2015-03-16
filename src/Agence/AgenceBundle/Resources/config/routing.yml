@@ -14,6 +14,10 @@ agence_admin_danseuses:
     resource: "@AgenceBundle/Resources/config/routing/danseusesAdmin.yml"
     prefix:   /admin/danseuses
 
+contact:
+    resource: "@AgenceBundle/Resources/config/routing/contact.yml"
+    prefix:   /contact
+
 
 home:
     path:     /
