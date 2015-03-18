@@ -28,7 +28,7 @@ class Danseuses
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\MediaGalerie", mappedBy="danseuse", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Galerie", mappedBy="danseuse", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $galerie;
@@ -323,10 +323,10 @@ class Danseuses
     /**
      * Add galerie
      *
-     * @param \Agence\AgenceBundle\Entity\MediaGalerie $galerie
+     * @param \Agence\AgenceBundle\Entity\Galerie $galerie
      * @return Danseuses
      */
-    public function addGalerie(\Agence\AgenceBundle\Entity\MediaGalerie $galerie)
+    public function addGalerie(\Agence\AgenceBundle\Entity\Galerie $galerie)
     {
         $this->galerie[] = $galerie;
 
@@ -336,9 +336,9 @@ class Danseuses
     /**
      * Remove galerie
      *
-     * @param \Agence\AgenceBundle\Entity\MediaGalerie $galerie
+     * @param \Agence\AgenceBundle\Entity\Galerie $galerie
      */
-    public function removeGalerie(\Agence\AgenceBundle\Entity\MediaGalerie $galerie)
+    public function removeGalerie(\Agence\AgenceBundle\Entity\Galerie $galerie)
     {
         $this->galerie->removeElement($galerie);
     }

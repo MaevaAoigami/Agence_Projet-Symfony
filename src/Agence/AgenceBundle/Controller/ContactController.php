@@ -14,6 +14,12 @@ use Agence\AgenceBundle\Form\ContactType;
  */
 class ContactController extends Controller
 {
+
+    public function aProposAction()
+    {
+        return $this->render('AgenceBundle:Apropos:apropos.html.twig');
+    }
+
 	/**
      * Creates a new Contact entity.
      *

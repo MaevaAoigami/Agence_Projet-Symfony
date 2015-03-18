@@ -5,12 +5,12 @@ namespace Agence\AgenceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MediaGalerie
+ * Galerie
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\MediaGalerieRepository")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\GalerieRepository")
  */
-class MediaGalerie
+class Galerie
 {
     /**
      * @var integer
@@ -22,7 +22,7 @@ class MediaGalerie
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\MediaGalerie", inversedBy="galerie", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Danseuses", inversedBy="galerie", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $danseuse;
@@ -158,10 +158,10 @@ public $file;
     /**
      * Set danseuse
      *
-     * @param \Agence\AgenceBundle\Entity\MediaGalerie $danseuse
-     * @return MediaGalerie
+     * @param \Agence\AgenceBundle\Entity\Danseuses $danseuse
+     * @return Danseuses
      */
-    public function setDanseuse(\Agence\AgenceBundle\Entity\MediaGalerie $danseuse)
+    public function setDanseuse(\Agence\AgenceBundle\Entity\Danseuses $danseuse)
     {
         $this->danseuse = $danseuse;
 
@@ -171,7 +171,7 @@ public $file;
     /**
      * Get danseuse
      *
-     * @return \Agence\AgenceBundle\Entity\MediaGalerie 
+     * @return \Agence\AgenceBundle\Entity\Danseuses 
      */
     public function getDanseuse()
     {

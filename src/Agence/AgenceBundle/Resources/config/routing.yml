@@ -14,6 +14,10 @@ agence_admin_danseuses:
     resource: "@AgenceBundle/Resources/config/routing/danseusesAdmin.yml"
     prefix:   /admin/danseuses
 
+agence_danseuse_galerie:
+    resource: "@AgenceBundle/Resources/config/routing/galerie.yml"
+    prefix:   /pages/danseuses/galerie
+
 contact:
     resource: "@AgenceBundle/Resources/config/routing/contact.yml"
     prefix:   /contact
@@ -78,3 +82,7 @@ adminCommande:
 adminShowFacture:
     pattern:  /admin/show/facture/{id}
     defaults: { _controller: AgenceBundle:CommandeAdmin:showFacture }
+
+apropos:
+    path:     /apropos
+    defaults: { _controller: AgenceBundle:Contact:aPropos }
