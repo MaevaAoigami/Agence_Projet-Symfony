@@ -6,6 +6,7 @@
 {% block body %}
 
 <div class="container">
+		<div class="feather">
 		<div class="row">
 			<div class="span3">
 	            <div class="well">
@@ -19,11 +20,16 @@
 			<div class="span9">
 				<div class="row">
 					<div class="span5">
+						<div class="image_presentation">
 						<img src="{{ asset(danseuse.image.AssetPath) }}" alt="{{ danseuse.image.name }}">
+						</div>
 					</div>
+					
 
 					<div class="span4">
+					<div class="presentation_danseuse">
 						<h4>{{ danseuse.nom }}</h4>
+						<hr>
 						<h5>{{ danseuse.categories }}</h5>
 						<p>{{ danseuse.description }}</p>
 						<h4>{{ danseuse.prix|tva(danseuse.tva.multiplicate) }} €</h4>
@@ -46,28 +52,14 @@
                                 <a href="{{ path('panier') }}" class="bouton">La danseuse est déjà dans votre commande</a>
                             </div>
                         {% endif %}
-						
+					</div>
 					</div>
 				</div>
 
-			<div class="span10">
-				<section>
-			        <ul class="lb-album">
-			            <li>
-			                <a href="#image-1">
-			                    <img src="images/thumbs/1.jpg" alt="image01">
-			                    <span>Pointe</span>
-			                </a>
-			                <div class="lb-overlay" id="image-1">
-			                    <a href="#page" class="lb-close">x Close</a>
-			                    <img src="images/full/1.jpg" alt="image01" />
-			                </div>
-			            </li>
-			        </ul>
-			    </section>
+
 			</div>
 			
-			</div>
+		</div>	
 		</div>
 	</div>
 {% endblock %}
