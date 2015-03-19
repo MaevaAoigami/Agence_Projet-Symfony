@@ -1,69 +1,51 @@
-Symfony Standard Edition
-========================
+# README
+## README du site Opération'elles'
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
+---
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+* Github du projet : https://github.com/MaevaAoigami/Agence_Projet-Symfony
 
-What's inside?
---------------
+### Installation du site
 
-The Symfony Standard Edition is configured with the following defaults:
+* Se rendre sur le dossier **htdocs** (MAMP) ou **www** (WAMP, EasyPHP, ...)
 
-  * An AppBundle you can use to start coding;
+* Cloner le projet en local :
+```html
+git clone https://github.com/MaevaAoigami/Agence_Projet-Symfony.git**
+```
 
-  * Twig as the only configured template engine;
+* Allez dans le dossier du projet **Agence_Projet-Symfony**
 
-  * Doctrine ORM/DBAL;
+* Mettre à jour le composer.phar  :
+```html
+php composer.phar update
+```
 
-  * Swiftmailer;
+* Générer la base de données :
+```html
+php app/console doctrine:database:create
+```
 
-  * Annotations enabled for everything.
+* Générer les tables (entités) :
+```html
+php app/console doctrine:schema:update --force
+```
 
-It comes pre-configured with the following bundles:
+* Générer les fixtures :
+```html
+php app/console doctrine:fixture:load
+```
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+* Le site est prêt à être utilisé
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+### Création d'un compte administrateur
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+#### Pour accéder à la partie admin
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
-    library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  http://symfony.com/doc/2.6/book/installation.html
-[6]:  http://symfony.com/doc/2.6/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  http://symfony.com/doc/2.6/book/doctrine.html
-[8]:  http://symfony.com/doc/2.6/book/templating.html
-[9]:  http://symfony.com/doc/2.6/book/security.html
-[10]: http://symfony.com/doc/2.6/cookbook/email.html
-[11]: http://symfony.com/doc/2.6/cookbook/logging/monolog.html
-[12]: http://symfony.com/doc/2.6/cookbook/assetic/asset_management.html
-[13]: http://symfony.com/doc/2.6/bundles/SensioGeneratorBundle/index.html
+* Se créer un compte dans la partie **S'inscrire**
+* Dans le terminal, à la racine du dossier **Agence_Projet-Symfony**, tapez la commande :
+```html
+php app/console fos:user:promote [votre_pseudo] --super
+```
+* Se déconnecter puis se reconnecter **avec les identifiants du compte administrateur précédemment crée**
+* La partie admin est disponible avec le menu **Admin**
