@@ -10,8 +10,3 @@ danseuse_galerie_create:
     path:     /create
     defaults: { _controller: "AgenceBundle:Galerie:create" }
     methods:  POST
-
-danseuse_galerie_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "AgenceBundle:Galerie:delete" }
-    methods:  [POST, DELETE]

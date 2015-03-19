@@ -4,29 +4,55 @@
 <div class="container">
 	<div class="row">
 
+
+		{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+<div class="span3">
+<div class="well">
+        <ul class="nav nav-list">
+            <li>
+                <a href="{{ path('fos_user_profile_show') }}">Mes informations</a>
+            </li>
+            <li>
+                <a href="{{ path('fos_user_profile_edit') }}">Changer mes informations</a>
+            </li>
+            <li>
+                <a href="{{ path('fos_user_change_password') }}">Changer mon mot de passe</a>
+            </li>
+            
+            <li>
+                <a href="{{ path('fos_user_security_logout') }}">deconnexion</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+ {% endif %}	
+
 		<div class="span9">
 
 			{% for flashmessage in app.session.flashbag.get ('success') %}
-			<div class="alert alert-success">
+			<div class="bouton">
 				{{ flashmessage }}
 			</div>
 			{% endfor %}
 			
 			{% for flashmessage in app.session.flashbag.get ('error') %}
-			<div class="alert alert-error">
+			<div class="bouton">
 				{{ flashmessage }}
 			</div>
 			{% endfor %}
-
-			<h2>Factures</h2>
+			
+			<div class="title">
+			<h1>Factures</h1>
+			</div>
 
 			<form>
 				<table class="table table-striped table-hover">
 					<thead>
-						<th>Référence</th>
-						<th>Date</th>
-						<th>Prix TTC</th>
-						<th></th>
+						<th>RÉFÉRENCE(S)</th>
+						<th>DATE</th>
+						<th>PRIX TTC</th>
+						<th>FACTURE PDF</th>
 					</thead>
 					<tbody>
 
@@ -41,7 +67,7 @@
 							<td>Référence : {{ facture.reference }}</td>
 							<td>{{ facture.date|date('d/m/Y') }}</td>
 							<td>{{ facture.commande.prixTTC }} €</td>
-							<td><a href="{{ path('facturePDF', {'id' : facture.id }) }}" target="_blank"><i class="icon-refresh"></i></a></td>
+							<td><a class="bouton" href="{{ path('facturePDF', {'id' : facture.id }) }}" target="_blank"><i class="icon-refresh"></i></a></td>
 						</tr>
 						
 						{% endfor %}

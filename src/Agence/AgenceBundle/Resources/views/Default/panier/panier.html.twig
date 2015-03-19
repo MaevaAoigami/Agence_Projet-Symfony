@@ -20,24 +20,26 @@
 				<div class="span9">
 
                     {% for flashMessage in app.session.flashbag.get('success') %}
-                        <div class="alert alert-success">
+                        <div class="bouton">
                             {{ flashMessage }}
                         </div>
                     {% endfor %}
-                    <h2>Votre Demande</h2>
+                    <div class="titre">
+                    <h1>Votre Demande</h1>
+                    </div>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Nom</th>
-                                <th>Nombre de jours</th>
-                                <th>Prestation journalière</th>
-                                <th>Total HT</th>
+                                <th>NOM</th>
+                                <th>NOMBRE DE JOURS</th>
+                                <th>PRESTATION JOURNALIÈRE</th>
+                                <th>PRIX TOTAL HT</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% if danseuses|length == 0 %}
                                 <tr>
-                                    <td colspan="4">Aucune danseuse dans votre demande.</td>
+                                    <td colspan="4">AUCUNE DANSEUSE DANS VOTRE DEMANDE</td>
                                 </tr>
                             {% endif %}
 
@@ -81,9 +83,13 @@
                     <dd>{{ totalTTC }} €</dd>
                 </dl>
                 <div class="clearfix"></div>
-                <a href="{{ path('livraison') }}" class="btn btn-success pull-right">Valider ma demande</a>
+
+
+                <a href="{{ path('produits') }}" class="bouton">Continuer mes recherches</a>
+                <a href="{{ path('livraison') }}" class="bouton">Valider ma demande</a>
                 {% endif %}
-                <a href="{{ path('produits') }}" class="btn btn-primary">Continuer mes recherches</a>
+
+
             </div>
 		
 		</div>

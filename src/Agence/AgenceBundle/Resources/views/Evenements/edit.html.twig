@@ -1,16 +1,22 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
-    <h1>Evenements edit</h1>
+
+{% block body %}
+    <div class="container">
+    <div class="titre">
+    <h1>Modifier l'évènement</h1>
+    </div>
+
 
     {{ form(edit_form) }}
 
         <ul class="record_actions">
     <li>
         <a href="{{ path('admin_evenements') }}">
-            Back to the list
+            Retourner à la liste
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
 </ul>
+</div>
 {% endblock %}

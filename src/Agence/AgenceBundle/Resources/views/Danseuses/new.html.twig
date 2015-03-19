@@ -1,15 +1,34 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
-    <h1>Danseuses creation</h1>
+{% block body %}
 
-    {{ form(form) }}
+<div class="container">
+<div class="feather_contact">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('pages_danseuses') }}">
-            Retour à la liste
-        </a>
-    </li>
-</ul>
+<div class="titre">
+<h1>Danseuses</h1>
+</div>
+
+<div class="row">
+        <div class="inscription">     
+            <div class="register_content">
+                    <div class="inscription_container">
+                        
+                        <h2>creation de profil</h2>
+                        {{ form(form) }}
+				        <ul class="record_actions">
+						    <li>
+						        <a href="{{ path('pages_danseuses') }}" class="bouton">Retour à la liste</a>
+						    </li>
+						</ul>
+                    </div>
+                    
+            </div>        
+                
+            
+        </div> <!-- end span 12 --> 
+        </div>
+</div> <!-- end row -->    
+</div>
+
 {% endblock %}

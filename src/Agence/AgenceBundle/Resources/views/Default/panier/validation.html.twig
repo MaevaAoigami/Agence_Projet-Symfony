@@ -9,16 +9,17 @@
                 {% render(controller('AgenceBundle:Panier:menu')) %}
                 </div>
                 <div class="span9">
-
-                    <h2>Valider ma demande</h2>
+                    <div class="titre">
+                    <h1>Valider ma demande</h1>
+                    </div>
                     <form>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Références</th>
-                                <th>Quantité</th>
-                                <th>Prix unitaire</th>
-                                <th>Total HT</th>
+                                <th>NOM(S)</th>
+                                <th>NOMBRE DE JOUR(S)</th>
+                                <th>PRIX JOURNALIER</th>
+                                <th>TOTAL HT</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,7 +51,7 @@
 
                 <div class="span3 pull-left">
                     <dl class="pull-left">
-                        <dt><h4>Adresse de livraison</h4></dt>
+                        <dt><h5>Adresse de livraison</h5></dt>
                         <dt>{{ commande.commande.livraison.prenom }} {{ commande.commande.livraison.nom }}</dt>
                         <dt>{{ commande.commande.livraison.adresse }}</dt>
                         <dt>{{ commande.commande.livraison.cp }} {{ commande.commande.livraison.ville }} - {{ commande.commande.livraison.pays }}</dt>
@@ -59,7 +60,7 @@
 
                 <div class="span3 pull-left">
                     <dl class="pull-left">
-                        <dt><h4>Adresse de facturation</h4></dt>
+                        <dt><h5>Adresse de facturation</h5></dt>
                         <dt>{{ commande.commande.facturation.prenom }} {{ commande.commande.facturation.nom }}</dt>
                         <dt>{{ commande.commande.facturation.adresse }}</dt>
                         <dt>{{ commande.commande.facturation.cp }} {{ commande.commande.facturation.ville }} - {{ commande.commande.facturation.pays }}</dt>
@@ -72,10 +73,13 @@
                     <input name="token" type="hidden" value="{{ commande.commande.token }}" />
                     <input name="prix" type="hidden" value="{{ commande.commande.prixTTC }}" />
                     <input name="date" type="hidden" value="{{ commande.date|date('dmyhms') }}" />
-                    <button type="submit" class="btn btn-success pull-right">Payer</button>
-                </form>
+                    <button type="submit" class="bouton pull-right">Payer votre commande</button>
 
-                <a href="{{ path('livraison') }}" class="btn btn-primary">Retour</a>
+                </form>
+                <br>
+                <a href="{{ path('livraison') }}" class="bouton">Retour à la page précèdente</a>
+                <br>
+                
             </div>
         
         </div>

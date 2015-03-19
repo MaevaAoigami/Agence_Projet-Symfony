@@ -1,16 +1,25 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
-    <h1>Categories édition</h1>
+{% block body %}
 
+<div class="container">
+	<div class="titre">
+    <h1>Modification des catégories</h1>
+	</div>
+	<div class="danseuse_admin_edit">
     {{ form(edit_form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('admin_categories') }}">
-            Back to the list
+    <br>
+        <a class="bouton" href="{{ path('admin_categories') }}">
+            Retour à la liste
         </a>
+        <br>
     </li>
+    <br>
     <li>{{ form(delete_form) }}</li>
 </ul>
+</div>
+</div>
 {% endblock %}

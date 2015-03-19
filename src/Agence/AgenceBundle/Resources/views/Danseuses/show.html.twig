@@ -1,54 +1,68 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
+{% block body %}
+    <div class="container">
+    <div class="feather2">
+    <div class="titre">
     <h1>Danseuses</h1>
+    </div>
 
+    <div class="container_danseuse_admin">
     <table class="record_properties">
         <tbody>
+            
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <th><h4>NOM</h4></th>
+                <td><h4>{{ entity.nom }}</h4></td>
+            </tr>
+
+        <tbody>    
+            <tr>
+                <tr>
+                    <th><h4>DESCRIPTION</h4></th>
+                </tr>    
+                <td>{{ entity.description }} <br></td>
+            </tr>
+        </tbody> 
+
+            <tr>
+                <th>
+                    <h4>•</h4>
+                </th>
             </tr>
             <tr>
-                <th>Nom</th>
-                <td>{{ entity.nom }}</td>
+                <th><h4>PRIX</h4></th>
+                <td><h4>{{ entity.prix }} €</h4></td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ entity.prix }}</td>
-            </tr>
-            <tr>
-                <th>Disponibilité</th>
+                <th><h4>DISPONIBILITÉ</h4></th>
                 <td>
                     {% if entity.disponible == 0 %}
-                        Non !
+                        <h4>Non !</h4>
                     {% else %}
-                        Oui !
+                        <h4>Oui !</h4>
                     {% endif %}
                 </td>
             </tr>
             <tr>
-                <th>Categorie</th>
-                <td>{{ entity.categories }}</td>
+                <th><h4>CATEGORIE</h4></th>
+                <td><h4>{{ entity.categories }}</h4></td>
             </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('pages_danseuses') }}">
-            Retour à la liste
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('pages_danseuses_edit', { 'id': entity.id }) }}">
-            Modifier
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
-{% endblock %}
+            <br>
+        <br>
+            <li>
+                <a class="bouton" href="{{ path('pages_danseuses') }}">retourner à la page</a>
+            </li>
+        <br>    
+            
+        <br>
+            <li> {{ form(delete_form) }}</li>
+        </ul>
+    </div> 
+    </div>
+    </div>
+    {% endblock %}   

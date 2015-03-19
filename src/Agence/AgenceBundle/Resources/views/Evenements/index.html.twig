@@ -1,17 +1,34 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
-    <h1>Evenements list</h1>
+{% block body %}
+    <div class="container">
+    <div class="titre">
+    <h1>Liste des évènements</h1>
+    </div>
+
+
+    <div class="admin_categorie_container">
+    <div class="admin_evenement">
+
+    
+    <ul>
+        <li>
+        <br>
+            <a class="bouton" href="{{ path('admin_evenements_new') }}">
+                Créer un nouvel évènement
+            </a>
+        </li>
+    </ul>
+    <br>
 
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Datehour</th>
-                <th>Danseuses</th>
-                <th>Actions</th>
+                <th>NOM(S)</th>
+                <th>LIEU</th>
+                <th>DATES & HEURE</th>
+                <th>DANSEUSE(S)</th>
+                <th>ACTIONS</th>
             </tr>
         </thead>
         <tbody>
@@ -24,8 +41,8 @@
 
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('admin_evenements_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
+                
+                <td><a class="bouton" href="{{ path('admin_evenements_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
                 <td>{{ entity.location }}</td>
                 <td>{% if entity.dateHour %}{{ entity.dateHour|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
@@ -41,24 +58,25 @@
                 </td>
                 <td>
                 <ul>
+                    <br>
                     <li>
-                        <a href="{{ path('admin_evenements_show', { 'id': entity.id }) }}">show</a>
+                        <a class="bouton" href="{{ path('admin_evenements_show', { 'id': entity.id }) }}">voir l'évènement</a>
                     </li>
+                    <br>
                     <li>
-                        <a href="{{ path('admin_evenements_edit', { 'id': entity.id }) }}">edit</a>
+                        <a class="bouton" href="{{ path('admin_evenements_edit', { 'id': entity.id }) }}">modifier l'évènement</a>
                     </li>
+                    <br><br>
+
                 </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('admin_evenements_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+        
+    
+    </div>
+    </div>
+    </div>
     {% endblock %}

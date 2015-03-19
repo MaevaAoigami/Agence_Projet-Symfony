@@ -1,40 +1,53 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
-    <h1>Evenements</h1>
+{% block body %}
+    <div class="container">
+    <div class="feather2">
 
+    <div class="titre">
+    <h1>Évènements</h1>
+    </div>
+
+    <div class="container_danseuse_admin">
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>ID</th>
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>NOM</th>
                 <td>{{ entity.name }}</td>
             </tr>
             <tr>
-                <th>Location</th>
+                <th>LIEU</th>
                 <td>{{ entity.location }}</td>
             </tr>
             <tr>
-                <th>Datehour</th>
+                <th>DATE & HEURE</th>
                 <td>{{ entity.dateHour|date('Y-m-d H:i:s') }}</td>
             </tr>
+            
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('admin_evenements') }}">
-            Back to the list
+    <br>
+        <a class="bouton" href="{{ path('admin_evenements') }}">
+            Retour à la liste
         </a>
     </li>
     <li>
-        <a href="{{ path('admin_evenements_edit', { 'id': entity.id }) }}">
-            Edit
+    <br>
+        <a class="bouton" href="{{ path('admin_evenements_edit', { 'id': entity.id }) }}">
+            modifier
         </a>
     </li>
+    <br>
     <li>{{ form(delete_form) }}</li>
 </ul>
+</div>
+</div>
+</div>
 {% endblock %}

@@ -2,8 +2,34 @@
 <div class="well">
     <ul class="nav nav-list">
         <li class="nav-header">Nos danseuses</li>
+
+
         <li class="active">
         	{% render(controller('AgenceBundle:Categories:menu')) %}
         </li>
+    
+
     </ul>
 </div>
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+<div class="well">
+        <ul class="nav nav-list">
+            <li>
+                <a href="{{ path('fos_user_profile_show') }}">Mes informations</a>
+            </li>
+            <li>
+                <a href="{{ path('fos_user_profile_edit') }}">Changer mes informations</a>
+            </li>
+            <li>
+                <a href="{{ path('fos_user_change_password') }}">Changer mon mot de passe</a>
+            </li>
+            
+            <li>
+                <a href="{{ path('fos_user_security_logout') }}">deconnexion</a>
+            </li>
+        </ul>
+    </div>
+
+ {% endif %}

@@ -85,4 +85,4 @@ adminShowFacture:
 
 apropos:
     path:     /apropos
-    defaults: { _controller: AgenceBundle:Contact:aPropos }
+    defaults: { _controller: AgenceBundle:Apropos:apropos }

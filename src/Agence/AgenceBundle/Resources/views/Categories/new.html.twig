@@ -1,15 +1,22 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
+{% block body %}
+	<div class="titre">
     <h1>Création d'une nouvelle catégorie</h1>
+    </div>
 
-    {{ form(form) }}
+		<div class="categorie_new">
+    	{{ form(form) }}
 
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_categories') }}">
-            Retour à la liste
-        </a>
-    </li>
-</ul>
+		    <li>
+		    	<br>
+		        <a class="bouton" href="{{ path('admin_categories') }}">
+		            Retour à la liste
+		        </a>
+		    </li>
+		</ul>
+		</div>
+
+
 {% endblock %}

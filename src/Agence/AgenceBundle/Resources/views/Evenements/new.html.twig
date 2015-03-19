@@ -1,15 +1,30 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
-    <h1>Evenements creation</h1>
+{% block body %}
 
-    {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_evenements') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+<div class="enregistrement">
+<div class="row">
+        <div class="inscription">     
+            <div class="register_content">
+
+                    <div class="inscription_container">
+                        <div class="titre">
+                        <h1>évènement</h1>
+                        </div>
+                        <h2>creation d'un nouvel évènement</h2>
+                        {{ form(form) }}
+                        <ul class="record_actions">
+                            <li>
+                                <a class="bouton" href="{{ path('admin_evenements') }}">retour à la liste</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+            </div>        
+                
+            
+        </div> <!-- end span 12 --> 
+</div> <!-- end row -->    
+</div> <!-- end enregistrement --> 
 {% endblock %}

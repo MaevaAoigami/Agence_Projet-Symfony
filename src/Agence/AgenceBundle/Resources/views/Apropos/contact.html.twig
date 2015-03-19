@@ -1,18 +1,33 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% block body -%}
-	{% for flashMessage in app.session.flashbag.get('success_contact') %}
-        <div class="alert alert-success">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
+{% block body %}
+    
+    <div class="feather_contact">
+    <div class="container">
+    <div class="titre">
+    <h1>contact</h1>
+    </div>
+        <div class="contact_container">
+            <div class="contact_form">
+        	{% for flashMessage in app.session.flashbag.get('success_contact') %}
+                <div class="bouton">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
 
-    {% for flashMessage in app.session.flashbag.get('error_contact') %}
-        <div class="alert alert-error">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
+            {% for flashMessage in app.session.flashbag.get('error_contact') %}
+                <div class="bouton">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
 
-	{{ form(form) }}
+        	{{ form(form) }}
+            </div>
+        </div>
+    </div>
+    </div> 
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d2624.4431060933175!2d2.337601100000001!3d48.86882890000002!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1426612057211" width="100%" height="200" frameborder="0" style="border:0"></iframe>
+    </div> 
 
 {% endblock %}
