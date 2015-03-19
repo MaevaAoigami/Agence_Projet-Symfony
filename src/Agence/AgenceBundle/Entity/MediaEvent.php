@@ -46,7 +46,7 @@ class MediaEvent
     
     public function getUploadRootDir()
     {
-        return __dir__.'/../../../../web/uploads';
+        return __dir__.'/../../../../web/uploads_event';
     }
     
     public function getAbsolutePath()
@@ -56,7 +56,7 @@ class MediaEvent
     
     public function getAssetPath()
     {
-        return 'uploads/'.$this->path;
+        return 'uploads_event/'.$this->path;
     }
     
     /**

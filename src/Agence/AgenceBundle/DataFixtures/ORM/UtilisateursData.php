@@ -73,6 +73,6 @@ class UtilisateursData extends AbstractFixture implements OrderedFixtureInterfac
 
     public function getOrder()
     {
-        return 4;
+        return 1;
     }
 }
