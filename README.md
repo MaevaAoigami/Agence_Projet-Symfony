@@ -45,7 +45,7 @@ php app/console doctrine:fixture:load
 * Se créer un compte dans la partie **S'inscrire**
 * Dans le terminal, à la racine du dossier **Agence_Projet-Symfony**, tapez la commande :
 ```html
-php app/console fos:user:promote [votre_pseudo] --super
+php app/console fos:user:promote [votre_pseudo] ROLE_ADMIN (ou --super)
 ```
 * Se déconnecter puis se reconnecter **avec les identifiants du compte administrateur précédemment crée**
 * La partie admin est disponible avec le menu **Admin**
