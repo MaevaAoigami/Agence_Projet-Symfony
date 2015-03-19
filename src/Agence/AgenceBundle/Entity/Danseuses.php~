@@ -28,12 +28,6 @@ class Danseuses
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity="Agence\AgenceBundle\Entity\Galerie", mappedBy="danseuse", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $galerie;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Agence\AgenceBundle\Entity\Tva",  inversedBy="danseuse", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
@@ -312,11 +306,5 @@ class Danseuses
     {
         return $this->utilisateur;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->galerie = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+
 }
