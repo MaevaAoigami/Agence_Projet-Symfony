@@ -1,14 +1,15 @@
 <?php
-
 namespace Agence\AgenceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\validator\Constraints as Assert;
 
 /**
  * Galerie
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Entity\GalerieRepository")
+ * @ORM\Table("Galerie")
+ * @ORM\Entity(repositoryClass="Agence\AgenceBundle\Repository\GalerieRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Galerie
 {
@@ -26,7 +27,7 @@ class Galerie
      * @ORM\JoinColumn(nullable=false)
      */
     private $danseuse;
-
+    
     /**
      * @ORM\PostLoad()
      */
@@ -34,21 +35,19 @@ class Galerie
     {
         $this->updateAt = new \DateTime();
     }
-
+    
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(type="string",length=255) 
+     * @Assert\NotBlank
      */
     private $name;
-
+    
     /**
-     * @var string
-     *
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(type="string",length=255, nullable=true) 
      */
     private $path;
-public $file;
+    
+    public $file;
     
     public function getUploadRootDir()
     {
@@ -133,7 +132,7 @@ public $file;
      * Set name
      *
      * @param string $name
-     * @return MediaGalerie
+     * @return Galerie
      */
     public function setName($name)
     {
@@ -146,7 +145,7 @@ public $file;
      * Set path
      *
      * @param string $path
-     * @return MediaGalerie
+     * @return Galerie
      */
     public function setPath($path)
     {
@@ -159,7 +158,7 @@ public $file;
      * Set danseuse
      *
      * @param \Agence\AgenceBundle\Entity\Danseuses $danseuse
-     * @return Danseuses
+     * @return Galerie
      */
     public function setDanseuse(\Agence\AgenceBundle\Entity\Danseuses $danseuse)
     {

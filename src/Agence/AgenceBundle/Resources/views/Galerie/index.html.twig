@@ -5,109 +5,22 @@
 
     <div class="container">
     	<div class="span9">
-    		<a href="{{ path('danseuse_galerie_new') }}">Ajouter une photo</a>
+    		<a href="{{ path('danseuse_galerie_new', { 'danseuse_id' : danseuse_id }) }}">Ajouter une photo</a>
     	</div>
     	<section>
 			<ul class="lb-album">
-				<li>
-					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
-					</a>
-					<div>
-						<a href="#">DELETE</a>
-					</div>
-				</li>
 
+				{% for galerie in entities %}
 				<li>
-					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
-					</a>
-					<div>
-						<a href="#">DELETE</a>
-					</div>
-				</li>
 
-				<li>
 					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
+						<img style="width:200px" src="{{ asset(galerie.getAssetPath) }}" alt="image01">
 					</a>
 					<div>
 						<a href="#">DELETE</a>
 					</div>
 				</li>
-
-				<li>
-					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
-					</a>
-					<div>
-						<a href="#">DELETE</a>
-					</div>
-				</li>
-
-				<li>
-					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
-					</a>
-					<div>
-						<a href="#">DELETE</a>
-					</div>
-				</li>
-
-				<li>
-					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
-					</a>
-					<div>
-						<a href="#">DELETE</a>
-					</div>
-				</li>
-
-				<li>
-					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
-					</a>
-					<div>
-						<a href="#">DELETE</a>
-					</div>
-				</li>
-
-				<li>
-					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
-					</a>
-					<div>
-						<a href="#">DELETE</a>
-					</div>
-				</li>
-
-				<li>
-					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
-					</a>
-					<div>
-						<a href="#">DELETE</a>
-					</div>
-				</li>
-
-				<li>
-					<a href="#image-1">
-						<img src="images/thumbs/1.jpg" alt="image01">
-						<span>Pointe</span>
-					</a>
-					<div>
-						<a href="#">DELETE</a>
-					</div>
-				</li>
+				{% endfor %}
 			</ul>
 		</section>
     </div>

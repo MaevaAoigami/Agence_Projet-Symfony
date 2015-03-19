@@ -4,7 +4,7 @@ danseuse_galerie:
 
 danseuse_galerie_new:
     path:     /new
-    defaults: { _controller: "AgenceBundle:Galerie:new" }
+    defaults: { _controller: "AgenceBundle:Galerie:create" }
 
 danseuse_galerie_create:
     path:     /create

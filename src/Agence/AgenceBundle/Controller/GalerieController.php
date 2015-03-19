@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Agence\AgenceBundle\Entity\Galerie;
 use Agence\AgenceBundle\Form\GalerieType;
 
+use Agence\AgenceBundle\Entity\Danseuses;
+
 /**
  * Galerie controller.
  *
@@ -19,34 +21,38 @@ class GalerieController extends Controller
      * Lists all Galerie entities.
      *
      */
-    public function indexAction()
+    public function indexAction($danseuse_id)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('AgenceBundle:Galerie')->findAll();
 
         return $this->render('AgenceBundle:Galerie:index.html.twig', array(
+            'danseuse_id' => $danseuse_id,
             'entities' => $entities,
         ));
     }
 
-    public function createAction(Request $request)
+    public function createAction(Request $request, $danseuse_id)
     {
+        $danseuse = $this->getDoctrine()->getManager()->getRepository('AgenceBundle:Danseuses')->find($danseuse_id);
+        
         $entity = new Galerie();
+        $entity->setDanseuse($danseuse);
+
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-        $danseuse = getDanseuse();
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity->setDanseuse($danseuse);
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('danseuse_galerie_create', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('danseuse_galerie', array('danseuse_id' => $danseuse_id)));
         }
 
         return $this->render('AgenceBundle:Galerie:new.html.twig', array(
+            'danseuse' => $danseuse,
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -62,28 +68,13 @@ class GalerieController extends Controller
     private function createCreateForm(Galerie $entity)
     {
         $form = $this->createForm(new GalerieType(), $entity, array(
-            'action' => $this->generateUrl('danseuse_galerie_create'),
+            'action' => $this->generateUrl('danseuse_galerie_create', array('danseuse_id' => $entity->getDanseuse()->getId())),
             'method' => 'POST',
         ));
 
         $form->add('submit', 'submit', array('label' => 'Ajouter'));
 
         return $form;
-    }
-
-    /**
-     * Displays a form to create a new Galerie entity.
-     *
-     */
-    public function newAction()
-    {
-        $entity = new Galerie();
-        $form   = $this->createCreateForm($entity);
-
-        return $this->render('AgenceBundle:Galerie:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
     }
 
     /**

@@ -16,7 +16,7 @@ agence_admin_danseuses:
 
 agence_danseuse_galerie:
     resource: "@AgenceBundle/Resources/config/routing/galerie.yml"
-    prefix:   /pages/danseuses/galerie
+    prefix:   /pages/danseuses/{danseuse_id}/galerie
 
 contact:
     resource: "@AgenceBundle/Resources/config/routing/contact.yml"
