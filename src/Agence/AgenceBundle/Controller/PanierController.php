@@ -9,6 +9,10 @@ use Agence\AgenceBundle\Entity\UtilisateurAdresse;
 
 class PanierController extends Controller
 {
+    /**
+    * Affichage du menu panier
+    *
+    */
     public function menuAction()
     {
         $session = $this->getRequest()->getSession();
@@ -20,6 +24,10 @@ class PanierController extends Controller
         return $this->render('AgenceBundle:Default:modulesUsed/panier.html.twig', array('articles' => $articles));
     }
 
+    /**
+    * Suppression d'une danseuse dans le panier
+    *
+    */
     public function supprimerAction($id)
     {
 
@@ -37,6 +45,10 @@ class PanierController extends Controller
 
     }
 
+    /**
+    * Ajout d'une danseuse dans le panier
+    *
+    */
     public function ajouterAction($id)
     {
         $session = $this->getRequest()->getSession();
@@ -55,7 +67,6 @@ class PanierController extends Controller
 
             $this->get('session')->getFlashBag()->add('success', 'Danseuse ajoutée dans votre panier avec succès.');
             
-            // $this->get('session')->getFlashBag()->add('success','Article ajouté avec succès');
         }
             
         $session->set('panier',$panier);
@@ -63,13 +74,15 @@ class PanierController extends Controller
         return $this->redirect($this->generateUrl('panier'));
     }
     
+    /**
+    * Affichage du panier de l'utilisateur
+    *
+    */
     public function panierAction()
     {
         $session = $this->getRequest()->getSession();
         if (!$session->has('panier')) $session->set('panier', array());
         
-        /* var_dump($session->get('panier'));
-        die(); */
 
         $em = $this->getDoctrine()->getManager();
         $danseuses = $em->getRepository('AgenceBundle:Danseuses')->findArray(array_keys($session->get('panier')));
@@ -78,6 +91,10 @@ class PanierController extends Controller
                                                                                     'panier' => $session->get('panier')));
     }
 
+    /**
+    * Suppression d'une adresse (livraison + facturation)
+    *
+    */
     public function adresseSuppressionAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -93,6 +110,10 @@ class PanierController extends Controller
         return $this->redirect($this->generateUrl('livraison'));
     }
 
+    /**
+    * Affichage des adresses de livraison + facturation et ajout d'une nouvelle adresse
+    *
+    */
     public function livraisonAction()
     {
 
@@ -118,6 +139,10 @@ class PanierController extends Controller
                                                                                       'form' => $form->createView()));
     }
 
+    /**
+    * Enregistrement des adresses pour la commande
+    *
+    */
     public function setLivraisonOnSession()
     {
         $session = $this->getRequest()->getSession();
@@ -132,13 +157,14 @@ class PanierController extends Controller
             return $this->redirect($this->generateUrl('validation'));
         }
 
-        /* var_dump($adresse);
-        die(); */
-
         $session->set('adresse', $adresse);
         return $this->redirect($this->generateUrl('validation'));
     }
 
+    /**
+    * Enregistrement de la commande
+    *
+    */
     public function validationAction()
     {
         if ($this->get('request')->getMethod() == 'POST') {
@@ -149,8 +175,6 @@ class PanierController extends Controller
         $prepareCommande = $this->forward('AgenceBundle:Commande:prepareCommande');
         $commande = $em->getRepository('AgenceBundle:Commande')->find($prepareCommande->getContent());
         
-        /* var_dump($commande);
-        die(); */
 
         return $this->render('AgenceBundle:Default:panier/validation.html.twig', array('commande' => $commande));
     }

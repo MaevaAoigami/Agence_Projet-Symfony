@@ -16,7 +16,7 @@ class DanseusesController extends Controller
 {
 
     /**
-     * Lists all Danseuses entities.
+     * Liste des profils de la danseuse connectée
      *
      */
     public function indexAction()
@@ -32,7 +32,7 @@ class DanseusesController extends Controller
         ));
     }
     /**
-     * Creates a new Danseuses entity.
+     * Création d'une nouvelle danseuse
      *
      */
     public function createAction(Request $request)
@@ -58,7 +58,7 @@ class DanseusesController extends Controller
     }
 
     /**
-     * Creates a form to create a Danseuses entity.
+     * Création du formulaire d'ajout d'une danseuse
      *
      * @param Danseuses $entity The entity
      *
@@ -92,7 +92,7 @@ class DanseusesController extends Controller
     }
 
     /**
-     * Finds and displays a Danseuses entity.
+     * Voir les informations de la danseuse
      *
      */
     public function showAction($id)
@@ -114,7 +114,7 @@ class DanseusesController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Danseuses entity.
+     * Édition du profil de la danseuse
      *
      */
     public function editAction($id)
@@ -138,7 +138,7 @@ class DanseusesController extends Controller
     }
 
     /**
-    * Creates a form to edit a Danseuses entity.
+    * Création du formulaire d'édition de la danseuse
     *
     * @param Danseuses $entity The entity
     *
@@ -157,7 +157,7 @@ class DanseusesController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Danseuses entity.
+     * Mise à jour du profil de la danseuse
      *
      */
     public function updateAction(Request $request, $id)
@@ -187,7 +187,7 @@ class DanseusesController extends Controller
         ));
     }
     /**
-     * Deletes a Danseuses entity.
+     * Suppression du profil de la danseuse
      *
      */
     public function deleteAction(Request $request, $id)
@@ -211,7 +211,7 @@ class DanseusesController extends Controller
     }
 
     /**
-     * Creates a form to delete a Danseuses entity by id.
+     * Création du formulaire de suppression du profil de la danseuse
      *
      * @param mixed $id The entity id
      *
@@ -225,22 +225,5 @@ class DanseusesController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
-    }
-
-    public function validateAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('AgenceBundle:Danseuses')->find($id);
-        if(!$entities) {
-            throw $this->createNotFoundException('Unable to find Danseuses entity.');
-        }
-
-        if($entities->getValider() == 0) {
-            $entities->setValider(1);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('pages_danseuses'));
     }
 }

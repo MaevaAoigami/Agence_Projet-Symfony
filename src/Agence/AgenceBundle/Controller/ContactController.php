@@ -16,7 +16,7 @@ class ContactController extends Controller
 {
 
 	/**
-     * Creates a new Contact entity.
+     * Création du message de Contact
      *
      */
     public function createAction(Request $request)
@@ -44,7 +44,7 @@ class ContactController extends Controller
     }
 
     /**
-     * Creates a form to create a Contact entity.
+     * Création du formulaire de contact
      *
      * @param Contact $entity The entity
      *

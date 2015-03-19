@@ -15,7 +15,7 @@ use Agence\AgenceBundle\Form\DanseusesType;
 class DanseusesAdminController extends Controller
 {
 	/**
-     * Lists all Danseuses entities.
+     * Liste de toutes les danseuses
      *
      */
     public function indexAction()
@@ -30,7 +30,7 @@ class DanseusesAdminController extends Controller
     }
     
 	 /**
-     * Finds and displays a Danseuses entity.
+     * Affichage des informations de la danseuses
      *
      */
     public function showAction($id)
@@ -52,7 +52,7 @@ class DanseusesAdminController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Danseuses entity.
+     * Édition de la danseuse
      *
      */
     public function editAction($id)
@@ -76,7 +76,7 @@ class DanseusesAdminController extends Controller
     }
 
     /**
-    * Creates a form to edit a Danseuses entity.
+    * Création du formulaire d'édition de la danseuse
     *
     * @param Danseuses $entity The entity
     *
@@ -95,7 +95,7 @@ class DanseusesAdminController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Danseuses entity.
+     * Mise à jour de la danseuse
      *
      */
     public function updateAction(Request $request, $id)
@@ -126,7 +126,7 @@ class DanseusesAdminController extends Controller
         ));
     }
     /**
-     * Deletes a Danseuses entity.
+     * Suppression de la danseuse
      *
      */
     public function deleteAction(Request $request, $id)
@@ -150,7 +150,7 @@ class DanseusesAdminController extends Controller
     }
 
     /**
-     * Creates a form to delete a Danseuses entity by id.
+     * Création du formulaire de suppression de la danseuse
      *
      * @param mixed $id The entity id
      *
@@ -168,6 +168,10 @@ class DanseusesAdminController extends Controller
         ;
     }
 
+    /**
+    * Validation du profil de la danseuse
+    *
+    */
     public function validateAction($id)
     {
         $em = $this->getDoctrine()->getManager();

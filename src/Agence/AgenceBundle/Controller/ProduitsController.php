@@ -7,6 +7,10 @@ use Agence\AgenceBundle\Entity\Categories;
 
 class ProduitsController extends Controller
 {
+    /**
+    * Affichage de l'ensemble des danseuses
+    *
+    */
     public function produitsAction(Categories $categorie = null)
     {
         $session = $this->getRequest()->getSession();
@@ -27,6 +31,11 @@ class ProduitsController extends Controller
         return $this->render('AgenceBundle:Default:produits/layout/produits.html.twig', array('danseuses' => $danseuses,
                                                                                                  'panier' => $panier));
     }
+
+    /**
+    * Page d'accueil (slider)
+    *
+    */
     public function homeAction()
     {
         return $this->render('AgenceBundle:Default:home.html.twig');

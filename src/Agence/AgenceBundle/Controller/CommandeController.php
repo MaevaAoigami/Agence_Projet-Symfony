@@ -10,6 +10,11 @@ use Agence\AgenceBundle\Entity\Danseuses;
 
 class CommandeController extends Controller
 {
+
+    /**
+    * Génération de la commande
+    *
+    */
     public function facture()
     {
         $em = $this->getDoctrine()->getManager();
@@ -69,6 +74,10 @@ class CommandeController extends Controller
     
     public function prepareCommandeAction()
     {
+    /**
+    * Commande mise en base de données
+    *
+    */
         $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
         
@@ -94,7 +103,7 @@ class CommandeController extends Controller
     }
 
     /*
-     * Cette méthode remplace l'API banque
+     * Cette méthode remplace l'API banque (quand on clique sur Payer)
      */
     public function validationCommandeAction($id)
     {

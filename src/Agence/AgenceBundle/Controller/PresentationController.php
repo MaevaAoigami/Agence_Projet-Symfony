@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class PresentationController extends Controller
 {
+    /**
+    * Présentation de la danseuse
+    *
+    */
     public function presentationAction($id)
     {
         $session = $this->getRequest()->getSession();

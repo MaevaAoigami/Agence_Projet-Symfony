@@ -9,12 +9,15 @@ use Agence\AgenceBundle\Entity\Categories;
 use Agence\AgenceBundle\Form\CategoriesType;
 
 /**
- * Categories controller.
+ * Controlleur de Catégories
  *
  */
 class CategoriesController extends Controller
 {
-
+    /**
+    * Affichage du menu des catégories
+    *
+    */
     public function menuAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -24,7 +27,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Lists all Categories entities.
+     * Affichage de toutes les catégories
      *
      */
     public function indexAction()
@@ -38,7 +41,7 @@ class CategoriesController extends Controller
         ));
     }
     /**
-     * Creates a new Categories entity.
+     * Création d'une nouvelle Catégorie
      *
      */
     public function createAction(Request $request)
@@ -62,7 +65,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Creates a form to create a Categories entity.
+     * Création du formulaire de création d'une Catégorie
      *
      * @param Categories $entity The entity
      *
@@ -96,7 +99,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Finds and displays a Categories entity.
+     * Affichage des informations de la catégorie
      *
      */
     public function showAction($id)
@@ -118,7 +121,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Categories entity.
+     * Édition de la catégorie
      *
      */
     public function editAction($id)
@@ -142,7 +145,7 @@ class CategoriesController extends Controller
     }
 
     /**
-    * Creates a form to edit a Categories entity.
+    * Formulaire d'édition de la catégorie
     *
     * @param Categories $entity The entity
     *
@@ -160,7 +163,7 @@ class CategoriesController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Categories entity.
+     * Édition de la catégorie
      *
      */
     public function updateAction(Request $request, $id)
@@ -190,7 +193,7 @@ class CategoriesController extends Controller
         ));
     }
     /**
-     * Deletes a Categories entity.
+     * Suppression de la catégorie
      *
      */
     public function deleteAction(Request $request, $id)
@@ -214,7 +217,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Creates a form to delete a Categories entity by id.
+     * Formulaire de suppression de la catégorie
      *
      * @param mixed $id The entity id
      *

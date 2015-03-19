@@ -12,12 +12,20 @@ class CommandeAdminController extends Controller
 {
     public function commandesAction() 
     {
+    /**
+    * Affichage de l'ensemble des commandes
+    *
+    */
         $em = $this->getDoctrine()->getManager();
         $commandes = $em->getRepository('AgenceBundle:Commande')->findAll();
         
         return $this->render('AgenceBundle:Default:commande/layout/index.html.twig', array('commandes' => $commandes));
     }
     
+    /**
+    * Affichage de la facture en PDF grâce au service GetFacture
+    *
+    */
     public function showFactureAction($id)
     {
         $em = $this->getDoctrine()->getManager();

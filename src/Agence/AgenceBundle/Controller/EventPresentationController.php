@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class EventPresentationController extends Controller
 {
+	/**
+    * Affichage des événements
+    *
+    */
     public function presentationAction()
     {
         $session = $this->getRequest()->getSession();

@@ -14,7 +14,10 @@ use Agence\AgenceBundle\Form\EvenementsType;
  */
 class EvenementsController extends Controller
 {
-
+    /**
+    * Affichage de l'ensemble des événements
+    *
+    */
     public function affichageAction()
     {
         $session = $this->getRequest()->getSession();
@@ -33,7 +36,7 @@ class EvenementsController extends Controller
     }
 
     /**
-     * Lists all Evenements entities.
+     * Liste de l'ensemble des événements
      *
      */
     public function indexAction()
@@ -47,7 +50,7 @@ class EvenementsController extends Controller
         ));
     }
     /**
-     * Creates a new Evenements entity.
+     * Création de l'événement
      *
      */
     public function createAction(Request $request)
@@ -71,7 +74,7 @@ class EvenementsController extends Controller
     }
 
     /**
-     * Creates a form to create a Evenements entity.
+     * Création du formulaire de création de l'événements
      *
      * @param Evenements $entity The entity
      *
@@ -106,7 +109,7 @@ class EvenementsController extends Controller
     }
 
     /**
-     * Finds and displays a Evenements entity.
+     * Affichage des informations de l'événement
      *
      */
     public function showAction($id)
@@ -128,7 +131,7 @@ class EvenementsController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Evenements entity.
+     * Édition de l'événement
      *
      */
     public function editAction($id)
@@ -152,7 +155,7 @@ class EvenementsController extends Controller
     }
 
     /**
-    * Creates a form to edit a Evenements entity.
+    * Création du formulaire de l'édition de l'événement
     *
     * @param Evenements $entity The entity
     *
@@ -170,7 +173,7 @@ class EvenementsController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Evenements entity.
+     * Mise à jour de l'événement
      *
      */
     public function updateAction(Request $request, $id)
@@ -200,7 +203,7 @@ class EvenementsController extends Controller
         ));
     }
     /**
-     * Deletes a Evenements entity.
+     * Suppression de l'événement
      *
      */
     public function deleteAction(Request $request, $id)
@@ -224,7 +227,7 @@ class EvenementsController extends Controller
     }
 
     /**
-     * Creates a form to delete a Evenements entity by id.
+     * Création du formulaire de suppresssion de l'événement
      *
      * @param mixed $id The entity id
      *
